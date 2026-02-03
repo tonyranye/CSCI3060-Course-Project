@@ -1,0 +1,6 @@
+Login
+Privileged
+Disable
+John Doe
+1234
+Disabled (D)

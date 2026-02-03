@@ -1,0 +1,3 @@
+User Logged
+Privileged
+Error: The length of the name is too long(Max 20 chars)

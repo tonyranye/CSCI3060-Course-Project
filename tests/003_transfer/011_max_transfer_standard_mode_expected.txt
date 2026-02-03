@@ -1,0 +1,4 @@
+User Logged
+Standard mode
+Standard transaction
+Error: User can not transfer more than $1000

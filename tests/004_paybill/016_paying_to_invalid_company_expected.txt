@@ -1,0 +1,4 @@
+User Logged
+Standard
+1234
+Error: Bill cannot be paid because it is not a valid company

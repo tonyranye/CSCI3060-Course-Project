@@ -1,0 +1,5 @@
+User Logged
+Privileged
+Account Modification
+Successfully created a new account
+Error: You may not perform transactions during account creation

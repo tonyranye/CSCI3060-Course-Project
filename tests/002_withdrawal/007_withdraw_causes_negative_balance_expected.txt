@@ -1,0 +1,5 @@
+User logged
+Standard Mode
+Standard transaction
+Account number
+Error: Not enough balance to withdraw this amount

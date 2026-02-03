@@ -1,0 +1,7 @@
+Login
+Privileged
+Transfer
+John Doe
+1234
+4567
+$1001

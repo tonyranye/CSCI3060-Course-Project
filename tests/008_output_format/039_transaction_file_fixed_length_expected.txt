@@ -1,0 +1,3 @@
+User Logged
+Standard
+Session terminated, each line for the file should be 40 chars.

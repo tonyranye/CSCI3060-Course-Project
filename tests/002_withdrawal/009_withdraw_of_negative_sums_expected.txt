@@ -1,0 +1,4 @@
+User Logged
+Standard Mode
+Standard transaction
+Error: Negative Balance, Please deposit some Cash.

@@ -1,0 +1,4 @@
+User logged 
+Privileged 
+Account Modification
+Successfully deleted the account.

@@ -1,0 +1,4 @@
+User Logged
+Standard
+Successfully deposited $x
+Error: Insufficient funds

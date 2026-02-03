@@ -1,0 +1,3 @@
+User Logged
+Standard
+Error: Deposit amount cannot be negative

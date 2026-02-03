@@ -1,0 +1,4 @@
+User Logged 
+Standard mode
+Standard transaction
+Error: no account number of “0Ax3” is listed under your name

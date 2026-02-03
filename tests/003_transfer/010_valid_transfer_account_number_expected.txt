@@ -1,0 +1,4 @@
+User Logged
+Standard mode
+Standard transaction
+Error: There is no account with this account number

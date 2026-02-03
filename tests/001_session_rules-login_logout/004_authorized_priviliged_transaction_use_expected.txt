@@ -1,0 +1,3 @@
+User Logged
+Standard Mode
+Error: Do not have permissions to create an account

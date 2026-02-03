@@ -1,0 +1,3 @@
+User Logged
+Privileged
+Successfully deposited $x into account 1234

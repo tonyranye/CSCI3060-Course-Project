@@ -1,0 +1,4 @@
+User Logged
+Standard
+Account Modification
+Error: This account is deleted

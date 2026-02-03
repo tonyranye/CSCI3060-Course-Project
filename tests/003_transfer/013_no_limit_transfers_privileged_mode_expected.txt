@@ -1,0 +1,4 @@
+User Logged
+Privileged Mode
+Privileged Transaction
+Transaction Successful!

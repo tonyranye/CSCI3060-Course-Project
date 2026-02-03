@@ -1,0 +1,4 @@
+User Logged
+Standard mode
+Standard transaction
+Error: User can not do a transaction on a disabled account

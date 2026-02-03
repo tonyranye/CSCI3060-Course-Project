@@ -1,0 +1,2 @@
+User Logged
+Error: Permission is denied since it is a privileged transaction

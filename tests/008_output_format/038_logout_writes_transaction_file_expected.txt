@@ -1,0 +1,3 @@
+User Logged
+Standard
+Session terminated, file write triggered.

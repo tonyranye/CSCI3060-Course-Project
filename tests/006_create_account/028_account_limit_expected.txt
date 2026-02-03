@@ -1,0 +1,3 @@
+User Logged
+Standard
+Error: You cannot have an account balance greater than $99,999.99
