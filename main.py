@@ -13,7 +13,7 @@ def welcome():
 
 
 def mainMenu():
-    print("\n\nWhat would you like  to do today?\n")
+    print("\nWhat would you like  to do today? Select from the options below\n")
     print("1. Login ") 
     print("2. Withdraw")
     print("3. Transfer")
@@ -69,7 +69,8 @@ def handleChoice(choice):
             print("Thank You for choosing JST Banking!")
             
         case _:
-            print("\nInvalid choice! Please try again.")
+            print("\nInvalid choice! Please try again.\n")
+            print("--------------------------------------------------------------------\n")
             (1)
             mainMenu()
 
