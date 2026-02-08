@@ -34,45 +34,45 @@ def mainMenu():
     return menuSelection
 
 def handleChoice(choice):
-    match choice:
-        case "1":
-            print("LOGIN SELECTED...")
-            
-        case "2":
-            print("WITHDRAW SELECTED...")
-            
-        case "3":
-            print("TRANSFER SELECTED...")
-            
-        case "4":
-            print("PAY BILLS SELECTED...")
-            
-        case "5":
-            print("DEPOSIT SELECTED...")
-            
-        case "6":
-            print("CREATE ACCOUNT SELECTED...")
+    choice = choice.lower()
+    if choice ==  "login":
+        print("LOGIN SELECTED...")
         
-        case "7":
-            print("DELETE ACCOUNT SELECTED...")
+    elif choice ==  "withdraw":
+        print("WITHDRAW SELECTED...")
+        
+    elif choice ==  "transfer":
+        print("TRANSFER SELECTED...")
+        
+    elif choice ==  "pay bills":
+        print("PAY BILLS SELECTED...")
+        
+    elif choice ==  "deposit":
+        print("DEPOSIT SELECTED...")
+        
+    elif choice ==  "create account":
+        print("CREATE ACCOUNT SELECTED...")
+    
+    elif choice ==  "delete account":
+        print("DELETE ACCOUNT SELECTED...")
+        
+    elif choice ==  "disable account":
+        print("DISABLE ACCOUNT SELECTED...")
+        
+    elif choice ==  "change plan":
+        print("CHANGE PLAN SELECTED...")
+        
+    elif choice ==  "logout":
+        print("LOGOUT SELECTED...")
             
-        case "8":
-            print("DISABLE ACCOUNT SELECTED...")
+    elif choice ==  "0":
+        print("Thank You for choosing JST Banking!")
             
-        case "9":
-            print("CHANGE PLAN SELECTED...")
-            
-        case "10":
-            print("LOGOUT SELECTED...")
-            
-        case "0":
-            print("Thank You for choosing JST Banking!")
-            
-        case _:
-            print("\nInvalid choice! Please try again.\n")
-            print("--------------------------------------------------------------------\n")
-            (1)
-            mainMenu()
+    else:
+        print("\nInvalid choice! Please try again.\n")
+        print("--------------------------------------------------------------------\n")
+        time.sleep(1)
+        mainMenu()
 
  
     
