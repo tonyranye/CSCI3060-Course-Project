@@ -65,7 +65,7 @@ def handleChoice(choice):
     elif choice ==  "logout":
         print("LOGOUT SELECTED...")
             
-    elif choice ==  "0":
+    elif choice ==  "exit":
         print("Thank You for choosing JST Banking!")
             
     else:
