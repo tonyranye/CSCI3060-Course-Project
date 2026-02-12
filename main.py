@@ -1,8 +1,16 @@
 import time
 import os
 import sys
+from BankSystem import BankSystem, loadAllAccountsFromFile
+from Account import Account
+from src.account_modification import *
+from src.transactions import *
 
-from src import *
+# LOAD ALL ACCOUNTS AT STARTUP
+loadAllAccountsFromFile()
+
+# global bank instance
+bank = BankSystem()
 
 def welcome():
     print("\n--------------------------------------------------------------------")
@@ -11,10 +19,9 @@ def welcome():
     print("--------------------------------------------------------------------")
     mainMenu()
 
-
 def mainMenu():
-    print("\nWhat would you like  to do today? Select from the options below\n")
-    print("1. Login ") 
+    print("\nWhat would you like to do today? Select from the options below\n")
+    print("1. Login") 
     print("2. Withdraw")
     print("3. Transfer")
     print("4. Paybills")
@@ -24,59 +31,79 @@ def mainMenu():
     print("8. Disable Account")
     print("9. Change Current Plan")
     print("10. Logout\n")
+    print("11. EXIT")
     
-    print("0. EXIT ")
-    
-    menuSelection = (input("\nEnter Choice: "))
-    
+    menuSelection = input("\nEnter Choice: ")
     handleChoice(menuSelection)
-    
     return menuSelection
 
 def handleChoice(choice):
     choice = choice.lower()
-    if choice ==  "login":
-        print("LOGIN SELECTED...")
-        
-    elif choice ==  "withdraw":
-        print("WITHDRAW SELECTED...")
-        
-    elif choice ==  "transfer":
-        print("TRANSFER SELECTED...")
-        
-    elif choice ==  "pay bills":
-        print("PAY BILLS SELECTED...")
-        
-    elif choice ==  "deposit":
-        print("DEPOSIT SELECTED...")
-        
-    elif choice ==  "create account":
-        print("CREATE ACCOUNT SELECTED...")
     
-    elif choice ==  "delete account":
-        print("DELETE ACCOUNT SELECTED...")
+    if choice == "login":
+        print("LOGIN SELECTED...")
+        bank.login()
         
-    elif choice ==  "disable account":
-        print("DISABLE ACCOUNT SELECTED...")
+    elif bank.current_user == None and choice != "login":
+        print("\n------------ Login Required, please login first ------------")
         
-    elif choice ==  "change plan":
-        print("CHANGE PLAN SELECTED...")
+    elif choice == "withdraw":
+        print("WITHDRAW SELECTED...")
+        # if bank.isAuthorized('withdraw'):
+            # withdraw()
         
-    elif choice ==  "logout":
-        print("LOGOUT SELECTED...")
+    elif choice == "transfer":
+        print("TRANSFER SELECTED...")
+        # if bank.isAuthorized('transfer'):
+        #     transfer()
             
-    elif choice ==  "exit":
+    elif choice == "paybills":
+        print("PAY BILLS SELECTED...")
+        # if bank.isAuthorized('paybills'):
+        #     paybills()
+        
+    elif choice == "deposit":
+        print("DEPOSIT SELECTED...")
+        # if bank.isAuthorized('deposit'):
+        #     deposit()
+        
+    elif choice == "create account":
+        print("CREATE ACCOUNT SELECTED...")
+        if bank.isAuthorized('create'):
+            bank.createAccount()
+    
+    elif choice == "delete account":
+        print("DELETE ACCOUNT SELECTED...")
+        # if bank.isAuthorized('delete'):
+        #     deleteAccount()
+        
+    elif choice == "disable account":
+        print("DISABLE ACCOUNT SELECTED...")
+        # if bank.isAuthorized('disable'):
+        #     disableAccount()
+        
+    elif choice == "change plan":
+        print("CHANGE PLAN SELECTED...")
+        # if bank.isAuthorized('changeplan'):
+        #     changePlan()
+        
+    elif choice == "logout":
+        print("LOGOUT SELECTED...")
+        bank.logout()
+        
+    elif choice == "exit":
+        if bank.is_logged_in:
+            bank.logout()
         print("Thank You for choosing JST Banking!")
+        sys.exit()  # Actually exit the program
             
     else:
         print("\nInvalid choice! Please try again.\n")
         print("--------------------------------------------------------------------\n")
         time.sleep(1)
-        mainMenu()
-
- 
     
-    
+    # Return to menu after each transaction
+    mainMenu()
 
 if __name__ == "__main__":
     welcome()
