@@ -2,12 +2,14 @@ import time
 import os
 import sys
 from BankSystem import BankSystem, loadAllAccountsFromFile
-from Account import Account
+from Account import *
 from src.account_modification import *
 from src.transactions import *
 
+
 # LOAD ALL ACCOUNTS AT STARTUP
 loadAllAccountsFromFile()
+
 
 # global bank instance
 bank = BankSystem()
@@ -33,7 +35,7 @@ def mainMenu():
     print("10. Logout\n")
     print("11. EXIT")
     
-    menuSelection = input("\nEnter Choice: ")
+    menuSelection = (input("\nEnter Choice: "))
     handleChoice(menuSelection)
     return menuSelection
 
@@ -49,8 +51,12 @@ def handleChoice(choice):
         
     elif choice == "withdraw":
         print("WITHDRAW SELECTED...")
-        # if bank.isAuthorized('withdraw'):
-            # withdraw()
+        if bank.isAuthorized('withdraw'):
+            w_a = int(input("please enter the amount you want to withdraw:"))
+          
+            bank.current_user.withdraw(w_a)
+            
+     
         
     elif choice == "transfer":
         print("TRANSFER SELECTED...")

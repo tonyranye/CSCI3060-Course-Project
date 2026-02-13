@@ -1,5 +1,5 @@
 import json
-from Account import Account
+from Account import *
 
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
@@ -32,6 +32,7 @@ class BankSystem:
                     self.is_logged_in = True
                     print(f'Welcome {name}!')
                     self.current_user.printAccountInfo()
+                    print(self.current_user)
                     return True
             
             print("Error: Account not found.")
@@ -159,8 +160,8 @@ def loadAllAccountsFromFile():
                 )
                 all_accounts.append(account)
             
-            print(f"✓ Loaded {len(all_accounts)} account(s) from file")
+            print(f" Loaded {len(all_accounts)} account(s) from file")
             
     except FileNotFoundError:
-        print("✓ No accounts file found. Starting with empty account list.")
+        print(" No accounts file found. Starting with empty account list.")
         all_accounts = []

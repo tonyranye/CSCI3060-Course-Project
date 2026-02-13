@@ -1,3 +1,5 @@
+
+
 class DEPOSITE:
     def __init__(self, curr_money, amount_d):
         self.CM = curr_money
