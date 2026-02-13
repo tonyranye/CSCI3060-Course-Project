@@ -52,7 +52,7 @@ def handleChoice(choice):
     elif choice == "withdraw":
         print("WITHDRAW SELECTED...")
         if bank.isAuthorized('withdraw'):
-            w_a = int(input("please enter the amount you want to withdraw:"))
+            w_a = float(input("please enter the amount you want to withdraw:"))
           
             bank.current_user.withdraw(w_a)
             
@@ -65,13 +65,15 @@ def handleChoice(choice):
             
     elif choice == "paybills":
         print("PAY BILLS SELECTED...")
-        # if bank.isAuthorized('paybills'):
-        #     paybills()
+        if bank.isAuthorized('paybills'):
+            p_a= float(input("please enter the amount you want to pay bill to the company:"))
+
+            bank.current_user.payBills(p_a)
         
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
-            d_a = int(input("please enter the amount you want to Deposit:"))
+            d_a = float(input("please enter the amount you want to Deposit:"))
           
             bank.current_user.deposite(d_a)
         

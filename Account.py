@@ -1,3 +1,5 @@
+from BankSystem import*
+
 class Account:
     def __init__(self, name, balance, is_admin, acc_num=None):
         self.name = name
@@ -32,6 +34,7 @@ class Account:
             self.balance-=w_a
         print(f"{self.name}`s current balance after withdrawing: {self.balance}")
         return self.balance
+    
     def deposite(self, d_a):
         if d_a<0:
             print("Deposite amount can not be negtive")
@@ -43,5 +46,35 @@ class Account:
             self.balance+=d_a
         print(f"{self.name}`s current balance after deposite: {self.balance}")
         return self.balance
+    
+
+    def payBills(self,amount):
+
+        
+        company = input("Enter company (EC / CQ / FI): ").upper()
+
+        valid_companies = ["EC", "CQ", "FI"]
+
+        if company not in valid_companies:
+            print("Please enter a valid company")
+            return 
+        
+        
+        if amount>self.balance:
+            print(f"You can not pay more than your current balance to {company} ")
+        
+
+        if  amount<0 or amount>2000:
+            print("Please enter a valid amount between 0 and 2000")
+            return 
+        else:
+            self.balance-=amount
+            print(f"You have paid {amount} to the company {company}")
+        
+        print(f"{self.name}`s current balance {self.balance} after payment")
+        return self.balance
+
+
+        
 
       
