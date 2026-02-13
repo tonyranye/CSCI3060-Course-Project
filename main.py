@@ -70,8 +70,10 @@ def handleChoice(choice):
         
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
-        # if bank.isAuthorized('deposit'):
-        #     deposit()
+        if bank.isAuthorized('deposit'):
+            d_a = int(input("please enter the amount you want to withdraw:"))
+          
+            bank.current_user.deposite(d_a)
         
     elif choice == "create account":
         print("CREATE ACCOUNT SELECTED...")

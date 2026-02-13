@@ -19,11 +19,29 @@ class Account:
     def withdraw(self, w_a):
         print(f"{self.name}`s current balance: {self.balance}")
 
+
+        if w_a<0:
+            print("Withdraw amount can not be negtive")
+            return
+
+
         if self.balance<w_a and self.balance<0:
             print("You can not draw amount higher than the balance")
             return 
-        
-        self.balance-=w_a
+        else:
+            self.balance-=w_a
         print(f"{self.name}`s current balance after withdrawing: {self.balance}")
         return self.balance
+    def deposite(self, d_a):
+        if d_a<0:
+            print("Deposite amount can not be negtive")
+            return
+        if self.balance>5000:
+            print("Your balance is already more than 5000")
+            return 
+        else:
+            self.balance+=d_a
+        print(f"{self.name}`s current balance after deposite: {self.balance}")
+        return self.balance
+
       
