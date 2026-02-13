@@ -1,12 +1,14 @@
 from BankSystem import*
 
 class Account:
-    def __init__(self, name, balance, is_admin, is_disabled = None, acc_num=None):
+    def __init__(self, name, balance, is_admin, payment_plan, is_disabled = None, acc_num=None):
         self.name = name
         self.balance = balance
         self.is_admin = is_admin
         self.acc_num = acc_num
+        self.payment_plan = payment_plan
         self.is_disabled = is_disabled
+        self.plans = ["SP", "NP"]
         
     def getName(self):
         return self.name    
@@ -23,6 +25,7 @@ class Account:
         print("--------------------------------------------------------------------")
         print(f"Account Holder: {self.name}")
         print(f"Account Number: {self.acc_num if self.acc_num else 'None'}")
+        print(f'Payment Plan: {self.payment_plan}')
         print(f"Current Balance: ${self.balance:.2f}")
         print(f"Admin Privileges: {'Yes' if self.is_admin else 'No'}")  # Changed from self.admin
         print(f"Account status: {'Active' if not self.is_disabled else 'Disabled' } ")

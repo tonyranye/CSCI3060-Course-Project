@@ -177,6 +177,7 @@ class BankSystem:
                     'name': acc.name,
                     'acc_num': acc.acc_num,
                     'balance': acc.balance,
+                    'payment plan': acc.payment_plan,
                     'is_disabled': acc.is_disabled,
                     'is_admin': acc.is_admin
                 })
@@ -276,6 +277,7 @@ def loadAllAccountsFromFile():
                     acc_dict['name'],
                     acc_dict['balance'],
                     is_admin,
+                    acc_dict['payment plan'],
                     is_disabled,
                     acc_dict.get('acc_num'),
                     
