@@ -1,5 +1,6 @@
 import json
 from Account import *
+import time
 
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
@@ -85,6 +86,26 @@ class BankSystem:
         print("\nAccount created successfully!")
         new_account.printAccountInfo()
         return new_account
+
+
+    def Delete_Account(self):
+        print("\n--- DELETE ACCOUNT ---")
+        name = input("Enter the account holder name:")
+        acc_num = input("Enter the account number:")
+        Match = False
+
+        for i, acc in enumerate(all_accounts):
+            if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+                all_accounts.pop(i)
+                Match = True
+        if not Match:
+            print("Error: Account not found or name and account number do not match.")
+        else:
+            print("\nAccount deleted")
+            print("\nAccounts remaining in system: " + str(len(all_accounts)))
+            print("\nTransaction code: ")
+            print("06 " + name + " " + acc_num)
+        time.sleep(3)
         
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""

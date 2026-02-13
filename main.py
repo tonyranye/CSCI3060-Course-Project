@@ -5,7 +5,7 @@ from BankSystem import BankSystem, loadAllAccountsFromFile
 from Account import *
 from src.account_modification import *
 from src.transactions import *
-
+from src.account_modification.deleteAccount import *
 
 # LOAD ALL ACCOUNTS AT STARTUP
 loadAllAccountsFromFile()
@@ -71,7 +71,7 @@ def handleChoice(choice):
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
-            d_a = int(input("please enter the amount you want to withdraw:"))
+            d_a = int(input("please enter the amount you want to Deposit:"))
           
             bank.current_user.deposite(d_a)
         
@@ -82,8 +82,8 @@ def handleChoice(choice):
     
     elif choice == "delete account":
         print("DELETE ACCOUNT SELECTED...")
-        # if bank.isAuthorized('delete'):
-        #     deleteAccount()
+        if bank.isAuthorized('delete'):
+            bank.Delete_Account()
         
     elif choice == "disable account":
         print("DISABLE ACCOUNT SELECTED...")
