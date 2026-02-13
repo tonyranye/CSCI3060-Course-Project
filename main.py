@@ -96,10 +96,10 @@ def handleChoice(choice):
         if bank.isAuthorized('disable'):
             bank.Disable_Account()
         
-    elif choice == "change plan":
+    elif choice == "change current plan":
         print("CHANGE PLAN SELECTED...")
-        # if bank.isAuthorized('changeplan'):
-        #     changePlan()
+        if bank.isAuthorized('changeplan'):
+            bank.change_plan()
         
     elif choice == "logout":
         print("LOGOUT SELECTED...")

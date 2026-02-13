@@ -138,22 +138,26 @@ class BankSystem:
                 print(f'{name} account {acc_num} disabled.')
             else:
                 print(f'{name} account {acc_num} enabled.')
+        time.sleep(2)
 
-    # def change_plan (self):
-    #     print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
-    #     name = input("Enter the account holder name:")
-    #     acc_num = input("Enter the account number:")
-    #     found_match = False
-    #     new_plan = ""
-    #     for i, acc in enumerate(all_accounts):
-    #         if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
-    #             found_match = True
-    #             if acc.is_change_plan == "SP":
-    #                 acc.is_change_plan = "NP"
-    #             else:
-    #                 acc.is_change_plan = "NP"
-    #             new_plan = acc.is_change_plan
-    #     print(f'{name} Account plan is changed to {new_plan}.')
+    def change_plan (self):
+        print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
+        name = input("Enter the account holder name:")
+        acc_num = input("Enter the account number:")
+        found_match = False
+        new_plan = ""
+        for i, acc in enumerate(all_accounts):
+            if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+                found_match = True
+                if acc.payment_plan == "SP":
+                    acc.payment_plan = "NP"
+                else:
+                    acc.payment_plan = "SP"
+                new_plan = acc.payment_plan
+        if not found_match:
+            print("Error: Account not found or name and account number do not match.")
+        else:
+            print(f'{name} Account plan is changed to {new_plan}.')
         
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""
@@ -277,7 +281,7 @@ def loadAllAccountsFromFile():
                     acc_dict['name'],
                     acc_dict['balance'],
                     is_admin,
-                    acc_dict['payment plan'],
+                    acc_dict['payment_plan'],
                     is_disabled,
                     acc_dict.get('acc_num'),
                     
