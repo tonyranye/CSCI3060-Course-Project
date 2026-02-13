@@ -77,7 +77,7 @@ class Account:
             return 
         else:
             self.balance-=w_a
-        print(f"{self.name}`s current balance after withdrawing: {self.balance}")
+        print(f"{self.name}`s current balance after withdrawing: ${self.balance:.2f}")
         return self.balance
     
     def deposite(self, d_a):
@@ -85,11 +85,11 @@ class Account:
             print("Deposite amount can not be negtive")
             return
         if self.balance>5000:
-            print("Your balance is already more than 5000")
+            print("Your balance is already more than $5000")
             return 
         else:
             self.balance+=d_a
-        print(f"{self.name}`s current balance after deposite: {self.balance}")
+        print(f"{self.name}`s current balance after deposite: ${self.balance:.2f}")
         return self.balance
     
 
@@ -110,13 +110,13 @@ class Account:
         
 
         if  amount<0 or amount>2000:
-            print("Please enter a valid amount between 0 and 2000")
+            print("Please enter a valid amount between $0 and $2000")
             return 
         else:
             self.balance-=amount
-            print(f"You have paid {amount} to the company {company}")
+            print(f"You have paid ${amount} to the company {company}")
         
-        print(f"{self.name}`s current balance {self.balance} after payment")
+        print(f"{self.name}`s current balance {self.balance:.2f} after payment")
         return self.balance
 
 

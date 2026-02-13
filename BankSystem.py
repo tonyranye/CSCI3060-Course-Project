@@ -1,5 +1,5 @@
 import json
-from Account import *
+from Account import Account
 import time
 
 # GLOBAL variable - holds all accounts loaded from JSON
