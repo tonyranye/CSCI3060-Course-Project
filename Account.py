@@ -1,11 +1,12 @@
 from BankSystem import*
 
 class Account:
-    def __init__(self, name, balance, is_admin, acc_num=None):
+    def __init__(self, name, balance, is_admin, is_disabled = None, acc_num=None):
         self.name = name
         self.balance = balance
         self.is_admin = is_admin
         self.acc_num = acc_num
+        self.is_disabled = is_disabled
         
     def getName(self):
         return self.name    
@@ -24,6 +25,7 @@ class Account:
         print(f"Account Number: {self.acc_num if self.acc_num else 'None'}")
         print(f"Current Balance: ${self.balance:.2f}")
         print(f"Admin Privileges: {'Yes' if self.is_admin else 'No'}")  # Changed from self.admin
+        print(f"Account status: {'Active' if not self.is_disabled else 'Disabled' } ")
         print("--------------------------------------------------------------------")
         
     def transferTo(self, to_account, amount):
@@ -112,6 +114,7 @@ class Account:
         if  amount<0 or amount>2000:
             print("Please enter a valid amount between $0 and $2000")
             return 
+    
         else:
             self.balance-=amount
             print(f"You have paid ${amount} to the company {company}")

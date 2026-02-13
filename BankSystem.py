@@ -21,6 +21,8 @@ class BankSystem:
         print("Standard (Account Holder)")
         print("Admin (Bank Employee)")
         
+        
+        
         choice = input("Enter session type: ").lower()
         
         if choice == "standard":
@@ -30,11 +32,15 @@ class BankSystem:
             # Search for account in global list
             for acc in all_accounts:
                 if acc.name.lower() == name.lower():
+                    if acc.is_disabled:
+                        print("\nError: This account has been disabled")
+                        return False
+                    
                     self.current_user = acc
                     self.is_logged_in = True
                     print(f'Welcome {name}!')
                     self.current_user.printAccountInfo()
-                    print(self.current_user)
+                    # print(self.current_user)
                     return True
             
             print("Error: Account not found.")
@@ -53,6 +59,7 @@ class BankSystem:
             return False
             
     def logout(self):
+        
         if not self.is_logged_in:
             print("Error: Not currently logged in.")
             return False
@@ -130,6 +137,7 @@ class BankSystem:
                     'name': acc.name,
                     'acc_num': acc.acc_num,
                     'balance': acc.balance,
+                    'is_disabled': acc.is_disabled,
                     'is_admin': acc.is_admin
                 })
                 
@@ -222,11 +230,16 @@ def loadAllAccountsFromFile():
                 # Handle both 'is_admin' and 'admin' keys for backward compatibility
                 is_admin = acc_dict.get('is_admin', acc_dict.get('admin', False))
                 
+                is_disabled = acc_dict.get("is_disabled", acc_dict.get("is_disabled", False))
+                
                 account = Account(
                     acc_dict['name'],
                     acc_dict['balance'],
                     is_admin,
-                    acc_dict.get('acc_num')
+                    is_disabled,
+                    acc_dict.get('acc_num'),
+                    
+                    
                 )
                 all_accounts.append(account)
             
