@@ -5,6 +5,15 @@ class Account:
         self.is_admin = is_admin
         self.acc_num = acc_num
         
+    def getName(self):
+        return self.name    
+    
+    def getBalance(self):
+        return self.balance
+    
+    def getAccNum(self):
+        return self.acc_num
+    
     def printAccountInfo(self):
         print("\n--------------------------------------------------------------------")
         print("ACCOUNT INFORMATION")

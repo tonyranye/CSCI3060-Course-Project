@@ -2,13 +2,13 @@
     {
         "name": "John Doe",
         "acc_num": "1000",
-        "balance": 1000.9,
+        "balance": 990.4,
         "is_admin": false
     },
     {
         "name": "Jane Smith",
         "acc_num": "1001",
-        "balance": 500.33,
+        "balance": 510.83,
         "is_admin": false
     }
 ]
