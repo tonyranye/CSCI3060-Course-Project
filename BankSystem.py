@@ -5,6 +5,7 @@ import time
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
 
+
 class BankSystem:
     def __init__(self):
         self.current_user = None
@@ -43,7 +44,7 @@ class BankSystem:
             self.session_type = "admin"
             self.current_user = "admin"  # Admin has no specific account
             self.is_logged_in = True
-            print("Admin Mode Enabled!")
+            print("\nAdmin Mode Enabled!")
             print(f"Total accounts in system: {len(all_accounts)}")
             return True
         
@@ -158,11 +159,54 @@ class BankSystem:
         
         return False
     
-
-    
-     
-
-
+    def transferMoney(self):
+        from BankSystem import all_accounts  # Import the global list
+        
+        # Admin can transfer from any account, standard user only from their own
+        if self.session_type == "admin":
+            acc_name_from = input("Enter account holder name to transfer FROM: ")
+            
+            # Find the account to transfer from
+            from_account = None
+            for acc in all_accounts:
+                if acc.name.lower() == acc_name_from.lower():
+                    from_account = acc
+                    break
+            
+            if not from_account:
+                print("Error: Source account not found.")
+                return False
+        else:
+            from_account = self.current_user
+        
+        acc_to = input("Enter account number to send money TO: ")
+        
+        # Find destination account
+        to_account = None
+        for acc in all_accounts:
+            if acc.acc_num == acc_to:
+                to_account = acc
+                break
+        
+        if not to_account:
+            print("Error: Destination account could not be found.")
+            return False
+        
+        try:
+            amount = float(input("Enter transfer amount: $"))
+            
+            # Use the Account's transferTo method
+            success = from_account.transferTo(to_account, amount)
+            
+            if success:
+                # Save changes to file
+                self.saveAllAccounts()
+            
+            return success
+        
+        except ValueError:
+            print("Error: Invalid amount entered. Please enter a number.")
+            return False
 
 # GLOBAL FUNCTION - Call this once at program startup
 def loadAllAccountsFromFile():

@@ -13,11 +13,12 @@ loadAllAccountsFromFile()
 
 # global bank instance
 bank = BankSystem()
+session_transfer_limit = 1000.00
 
 def welcome():
     print("\n--------------------------------------------------------------------")
     print("Welcome To JST Banking! ")
-    print("developed by\n \nJared Efrem\nSumukh  Jagirdar\nTony Akinniranye")
+    print("developed by\n \nJared Efrem\nSumukh Jagirdar\nTony Akinniranye")
     print("--------------------------------------------------------------------")
     mainMenu()
 
@@ -60,8 +61,8 @@ def handleChoice(choice):
         
     elif choice == "transfer":
         print("TRANSFER SELECTED...")
-        # if bank.isAuthorized('transfer'):
-        #     transfer()
+        if bank.isAuthorized('transfer'):
+            bank.transferMoney()
             
     elif choice == "paybills":
         print("PAY BILLS SELECTED...")
