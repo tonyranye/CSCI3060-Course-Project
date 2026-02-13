@@ -114,6 +114,46 @@ class BankSystem:
             print("\nTransaction code: ")
             print("06 " + name + " " + acc_num)
         time.sleep(3)
+
+    def Disable_Account(self):
+        print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
+        name = input("Enter the account holder name:")
+        acc_num = input("Enter the account number:")
+        found_match = False
+        is_disabled_check = False
+
+        for i, acc in enumerate(all_accounts):
+            if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+                if acc.is_disabled:
+                    acc.is_disabled = False
+                else:
+                    acc.is_disabled = True
+                    is_disabled_check = True
+                found_match = True
+
+        if not found_match:
+            print("Error: Account not found or name and account number do not match.")
+        else:
+            if is_disabled_check:
+                print(f'{name} account {acc_num} disabled.')
+            else:
+                print(f'{name} account {acc_num} enabled.')
+
+    # def change_plan (self):
+    #     print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
+    #     name = input("Enter the account holder name:")
+    #     acc_num = input("Enter the account number:")
+    #     found_match = False
+    #     new_plan = ""
+    #     for i, acc in enumerate(all_accounts):
+    #         if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+    #             found_match = True
+    #             if acc.is_change_plan == "SP":
+    #                 acc.is_change_plan = "NP"
+    #             else:
+    #                 acc.is_change_plan = "NP"
+    #             new_plan = acc.is_change_plan
+    #     print(f'{name} Account plan is changed to {new_plan}.')
         
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""

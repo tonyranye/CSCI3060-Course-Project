@@ -93,8 +93,8 @@ def handleChoice(choice):
         
     elif choice == "disable account":
         print("DISABLE ACCOUNT SELECTED...")
-        # if bank.isAuthorized('disable'):
-        #     disableAccount()
+        if bank.isAuthorized('disable'):
+            bank.Disable_Account()
         
     elif choice == "change plan":
         print("CHANGE PLAN SELECTED...")
