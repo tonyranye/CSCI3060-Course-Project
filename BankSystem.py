@@ -136,69 +136,55 @@ class BankSystem:
                 return False
         
         return False
-
+    
     def transferMoney(self):
-                # Admin can transfer from any account, standard user only from their own
-            if self.session_type == "admin":
-                acc_name_from = input("Enter account holder name to transfer FROM: ")
-                
-                # Find the account to transfer from
-                from_account = None
-                for acc in all_accounts:
-                    if acc.name.lower() == acc_name_from.lower():
-                        from_account = acc
-                        break
-                
-                if not from_account:
-                    print("Error: Source account not found.")
-                    return False
-                
-            else:
-                from_account = self.current_user
+        from BankSystem import all_accounts  # Import the global list
+        
+        # Admin can transfer from any account, standard user only from their own
+        if self.session_type == "admin":
+            acc_name_from = input("Enter account holder name to transfer FROM: ")
             
-            acc_to = input("Enter account number to send money TO: ")
-            
-            to_account = None
+            # Find the account to transfer from
+            from_account = None
             for acc in all_accounts:
-                if acc.acc_num == acc_to:
-                    to_account = acc
-                    
-            if not to_account:
-                print("Error: destination could not be found.")
-
-            if from_account == to_account:
-                print("Error: cannont transfer to the same account.")
-                
+                if acc.name.lower() == acc_name_from.lower():
+                    from_account = acc
+                    break
             
-            try: 
-                amount = float(input("Enter transfer amount: "))
-                
-                if amount < 0.0:
-                    print("Error: cannont transfer negative amounts")
-                    return False
-                    
-                if from_account.balance < amount:
-                    print("Error: insufficient funds to complete transfer")
-                    return False
-                    
-                
-                # perform transfer
-                from_account.balance -= amount
-                to_account.balance += amount
-                
-                self.saveAllAccounts()
-                
-                print(f"\n✓ Transfer successful!")
-                print(f"  From: {from_account.name} (Account #{from_account.acc_num})")
-                print(f"  To: {to_account.name} (Account #{to_account.acc_num})")
-                print(f"  Amount: ${amount:.2f}")
-                print(f"  New balance for {from_account.name}: ${from_account.balance:.2f}")
-                
-                return True
-            
-            except ValueError:
-                print("Error: Invalid amount entered. Please enter a number.")
+            if not from_account:
+                print("Error: Source account not found.")
                 return False
+        else:
+            from_account = self.current_user
+        
+        acc_to = input("Enter account number to send money TO: ")
+        
+        # Find destination account
+        to_account = None
+        for acc in all_accounts:
+            if acc.acc_num == acc_to:
+                to_account = acc
+                break
+        
+        if not to_account:
+            print("Error: Destination account could not be found.")
+            return False
+        
+        try:
+            amount = float(input("Enter transfer amount: $"))
+            
+            # Use the Account's transferTo method
+            success = from_account.transferTo(to_account, amount)
+            
+            if success:
+                # Save changes to file
+                self.saveAllAccounts()
+            
+            return success
+        
+        except ValueError:
+            print("Error: Invalid amount entered. Please enter a number.")
+            return False
 
 # GLOBAL FUNCTION - Call this once at program startup
 def loadAllAccountsFromFile():
