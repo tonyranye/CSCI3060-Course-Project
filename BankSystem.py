@@ -101,7 +101,7 @@ class BankSystem:
         
         print("\nAccount created successfully!")
         new_account.printAccountInfo()
-        return new_account
+        return new_account, balance
 
 
     def Delete_Account(self):
@@ -263,7 +263,7 @@ class BankSystem:
                 # Save changes to file
                 self.saveAllAccounts()
             
-            return success
+            return success, amount
         
         except ValueError:
             print("Error: Invalid amount entered. Please enter a number.")
@@ -300,7 +300,7 @@ def loadAllAccountsFromFile():
                     acc_dict['name'],
                     acc_dict['balance'],
                     is_admin,
-                    acc_dict['payment_plan'],
+                    acc_dict.get('payment_plan','SP'),
                     is_disabled,
                     acc_dict.get('acc_num'),
                     

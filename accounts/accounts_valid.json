@@ -2,16 +2,16 @@
     {
         "name": "John Doe",
         "acc_num": "1000",
-        "balance": 1030.9499999999998,
-        "payment_plan": "SP",
+        "balance": 630.9499999999998,
+        "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
     },
     {
         "name": "Jane Smith",
         "acc_num": "1001",
-        "balance": 470.28,
-        "payment_plan": "NP",
+        "balance": 770.28,
+        "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
     }

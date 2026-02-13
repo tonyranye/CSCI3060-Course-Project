@@ -57,7 +57,7 @@ def handleChoice(choice):
             bank.logout()
         print("Thank You for choosing JST Banking!")
         sys.exit()
-        
+
         
     elif bank.current_user == None and (choice != "login" or choice != "exit"):
         print("\n------------ Login Required, please login first ------------")
@@ -72,14 +72,16 @@ def handleChoice(choice):
     elif choice == "transfer":
         print("TRANSFER SELECTED...")
         if bank.isAuthorized('transfer'):
-            bank.transferMoney()
-            
+            sucess, amount = bank.transferMoney()
+            bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, amount)
+        
             
     elif choice == "paybills":
         print("PAY BILLS SELECTED...")
         if bank.isAuthorized('paybills'):
             p_a= float(input("please enter the amount you want to pay bill to the company:"))
             bank.current_user.payBills(p_a)
+            bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, p_a)
             
         
     elif choice == "deposit":
@@ -93,26 +95,33 @@ def handleChoice(choice):
     elif choice == "create account":
         print("CREATE ACCOUNT SELECTED...")
         if bank.isAuthorized('create'):
-            bank.createAccount()
+           _, balance= bank.createAccount()
+           bank.t_activity("05", bank.current_user.name, bank.current_user.acc_num, balance)
     
     elif choice == "delete account":
         print("DELETE ACCOUNT SELECTED...")
         if bank.isAuthorized('delete'):
+           
             bank.Delete_Account()
+            bank.t_activity("06", bank.current_user.name, bank.current_user.acc_num, 0)
         
     elif choice == "disable account":
         print("DISABLE ACCOUNT SELECTED...")
         if bank.isAuthorized('disable'):
             bank.Disable_Account()
+            bank.t_activity("07", bank.current_user.name, bank.current_user.acc_num, 0)
+
         
     elif choice == "change current plan":
         print("CHANGE PLAN SELECTED...")
         if bank.isAuthorized('changeplan'):
             bank.change_plan()
+            bank.t_activity("08", bank.current_user.name, bank.current_user.acc_num, 0)
         
     elif choice == "logout":
         print("LOGOUT SELECTED...")
         bank.logout()
+       
         
     
         
