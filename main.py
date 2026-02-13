@@ -48,12 +48,16 @@ def handleChoice(choice):
         print("LOGIN SELECTED...")
         bank.login()
         
+
+        
+        
     elif choice == "exit": 
         print("LOGOUT SELECTED..." if bank.is_logged_in else "")
         if bank.is_logged_in:
             bank.logout()
         print("Thank You for choosing JST Banking!")
         sys.exit()
+        
         
     elif bank.current_user == None and (choice != "login" or choice != "exit"):
         print("\n------------ Login Required, please login first ------------")
@@ -63,23 +67,28 @@ def handleChoice(choice):
         if bank.isAuthorized('withdraw'):
             w_a = float(input("please enter the amount you want to withdraw:"))
             bank.current_user.withdraw(w_a)
+            bank.t_activity("01", bank.current_user.name, bank.current_user.acc_num, w_a)
         
     elif choice == "transfer":
         print("TRANSFER SELECTED...")
         if bank.isAuthorized('transfer'):
             bank.transferMoney()
             
+            
     elif choice == "paybills":
         print("PAY BILLS SELECTED...")
         if bank.isAuthorized('paybills'):
             p_a= float(input("please enter the amount you want to pay bill to the company:"))
             bank.current_user.payBills(p_a)
+            
         
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
             d_a = float(input("please enter the amount you want to Deposit:"))
             bank.current_user.deposite(d_a)
+            bank.t_activity("04", bank.current_user.name, bank.current_user.acc_num, d_a)
+            
         
     elif choice == "create account":
         print("CREATE ACCOUNT SELECTED...")

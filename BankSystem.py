@@ -1,9 +1,13 @@
 import json
 from Account import Account
 import time
+from datetime import datetime
+
 
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
+
+
 
 
 class BankSystem:
@@ -11,10 +15,12 @@ class BankSystem:
         self.current_user = None
         self.session_type = None
         self.is_logged_in = False
+        self.s_trans = []
         
     def login(self):
         if self.is_logged_in:
             print("Error: Already logged in. Please Logout first.")
+            
             return False
         print("\n--- LOGIN ---")
         print("Select session type: ")
@@ -34,6 +40,7 @@ class BankSystem:
                 if acc.name.lower() == name.lower():
                     if acc.is_disabled:
                         print("\nError: This account has been disabled")
+                        
                         return False
                     
                     self.current_user = acc
@@ -64,6 +71,7 @@ class BankSystem:
             print("Error: Not currently logged in.")
             return False
         
+        self.writeFile()
         print(f'\nLogging out {self.session_type} session...')
         self.current_user = None
         self.session_type = None
@@ -215,6 +223,17 @@ class BankSystem:
         except ValueError:
             print("Error: Invalid amount entered. Please enter a number.")
             return False
+    def t_activity(self, t_type, name, acc_num, cur_am):
+        frmt= f"{t_type} {name} {acc_num} {cur_am}"
+        self.s_trans.append(frmt)
+    
+    def writeFile(self):
+
+        with open("t_data.txt",'a') as f:
+            for txn in self.s_trans:
+                    f.write(txn + "\n")
+        self.s_trans = []
+
 
 # GLOBAL FUNCTION - Call this once at program startup
 def loadAllAccountsFromFile():
@@ -248,3 +267,4 @@ def loadAllAccountsFromFile():
     except FileNotFoundError:
         print(" No accounts file found. Starting with empty account list.")
         all_accounts = []
+
