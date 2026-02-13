@@ -102,13 +102,13 @@ def handleChoice(choice):
         
     elif choice == "disable account":
         print("DISABLE ACCOUNT SELECTED...")
-        # if bank.isAuthorized('disable'):
-        #     disableAccount()
+        if bank.isAuthorized('disable'):
+            bank.Disable_Account()
         
-    elif choice == "change plan":
+    elif choice == "change current plan":
         print("CHANGE PLAN SELECTED...")
-        # if bank.isAuthorized('changeplan'):
-        #     changePlan()
+        if bank.isAuthorized('changeplan'):
+            bank.change_plan()
         
     elif choice == "logout":
         print("LOGOUT SELECTED...")
