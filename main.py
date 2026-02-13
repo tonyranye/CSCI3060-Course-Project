@@ -42,22 +42,27 @@ def mainMenu():
 
 def handleChoice(choice):
     choice = choice.lower()
+    print(f'CHOICE: {choice}')
     
     if choice == "login":
         print("LOGIN SELECTED...")
         bank.login()
         
-    elif bank.current_user == None and choice != "login":
+    elif choice == "exit": 
+        print("LOGOUT SELECTED..." if bank.is_logged_in else "")
+        if bank.is_logged_in:
+            bank.logout()
+        print("Thank You for choosing JST Banking!")
+        sys.exit()
+        
+    elif bank.current_user == None and (choice != "login" or choice != "exit"):
         print("\n------------ Login Required, please login first ------------")
         
     elif choice == "withdraw":
         print("WITHDRAW SELECTED...")
         if bank.isAuthorized('withdraw'):
             w_a = float(input("please enter the amount you want to withdraw:"))
-          
             bank.current_user.withdraw(w_a)
-            
-     
         
     elif choice == "transfer":
         print("TRANSFER SELECTED...")
@@ -68,14 +73,12 @@ def handleChoice(choice):
         print("PAY BILLS SELECTED...")
         if bank.isAuthorized('paybills'):
             p_a= float(input("please enter the amount you want to pay bill to the company:"))
-
             bank.current_user.payBills(p_a)
         
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
             d_a = float(input("please enter the amount you want to Deposit:"))
-          
             bank.current_user.deposite(d_a)
         
     elif choice == "create account":
@@ -102,11 +105,8 @@ def handleChoice(choice):
         print("LOGOUT SELECTED...")
         bank.logout()
         
-    elif choice == "exit":
-        if bank.is_logged_in:
-            bank.logout()
-        print("Thank You for choosing JST Banking!")
-        sys.exit()  # Actually exit the program
+    
+        
             
     else:
         print("\nInvalid choice! Please try again.\n")
