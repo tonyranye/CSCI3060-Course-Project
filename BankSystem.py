@@ -8,15 +8,15 @@ from datetime import datetime
 all_accounts = []
 
 
-
-
 class BankSystem:
     def __init__(self):
         self.current_user = None
         self.session_type = None
         self.is_logged_in = False
         self.s_trans = []
-        
+     
+     
+    # function call for when user selects  login option   
     def login(self):
         if self.is_logged_in:
             print("Error: Already logged in. Please Logout first.")
@@ -38,6 +38,8 @@ class BankSystem:
             # Search for account in global list
             for acc in all_accounts:
                 if acc.name.lower() == name.lower():
+                    
+                    # if the entered account is disabled, print a error message
                     if acc.is_disabled:
                         print("\nError: This account has been disabled")
                         
@@ -53,6 +55,7 @@ class BankSystem:
             print("\nError: Account not found.")
             return False
         
+        # if they entered admin login
         elif choice == "admin":
             self.session_type = "admin"
             self.current_user = "admin"  # Admin has no specific account
@@ -107,9 +110,12 @@ class BankSystem:
         name = input("Enter the account holder name:")
         acc_num = input("Enter the account number:")
         Match = False
-
+        
+        
+        # searches through all acounts to look for the name the user entered in the json file
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+                # if found, its removed form the all_accounts global variable
                 all_accounts.pop(i)
                 Match = True
         if not Match:
@@ -129,9 +135,11 @@ class BankSystem:
         acc_num = input("Enter the account number:")
         found_match = False
         is_disabled_check = False
-
+        
+        # searches throuhg list for the name and account number the user entered
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
+                # if found and belong to the same person, the account is set to disabled
                 if acc.is_disabled:
                     acc.is_disabled = False
                 else:
@@ -171,9 +179,12 @@ class BankSystem:
         else:
             print(f'{name} Account plan is changed to {new_plan}.')
             return name, acc_num
-        
+    
+       
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""
+        
+        # if the list is empty, assign 10000 as the acconut number 
         if not all_accounts:
             return "10000"
         
@@ -189,6 +200,7 @@ class BankSystem:
         """Save all accounts from global list to JSON file"""
         with open("accounts/accounts_valid.json", "w") as file:
             account_data = []
+            # for every account in all_accounts, ovveride the json file with the new data
             for acc in all_accounts:
                 account_data.append({
                     'name': acc.name,
@@ -202,6 +214,8 @@ class BankSystem:
             json.dump(account_data, file, indent=4)
             print("Accounts saved successfully")
     
+    
+    # function that determins if the current active user is allowed to use certain functions
     def isAuthorized(self, transaction_type):
         if not self.is_logged_in:
             print("Error: Must login first.")
@@ -273,6 +287,9 @@ class BankSystem:
         except ValueError:
             print("Error: Invalid amount entered. Please enter a number.")
             return False
+        
+        
+        
     def t_activity(self, t_type, name, acc_num, cur_am, m="  "):
 
         m_name = name[:20].ljust(20)
