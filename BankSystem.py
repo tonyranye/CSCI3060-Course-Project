@@ -273,6 +273,8 @@ class BankSystem:
         except ValueError:
             print("Error: Invalid amount entered. Please enter a number.")
             return False
+    
+    'Tracks the current activity for each transaction and function'
     def t_activity(self, t_type, name, acc_num, cur_am, m="  "):
 
         m_name = name[:20].ljust(20)
@@ -287,6 +289,8 @@ class BankSystem:
         self.s_trans.append(frmt)
 
         print(f"Format length:{len(frmt)}")
+    
+    'Writes the file to t_data.txt'
     
     def writeFile(self):
 
