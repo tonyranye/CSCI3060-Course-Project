@@ -67,7 +67,8 @@ class BankSystem:
         else:
             print('Invalid session type. Please enter "standard" or "admin"')
             return False
-            
+     
+    # function to log the current user out of the banking system        
     def logout(self):
         
         if not self.is_logged_in:
@@ -81,7 +82,9 @@ class BankSystem:
         self.is_logged_in = False
         print("Logout successful!")
         return True
-            
+    
+    
+    # function to create a new account, make name, account, num, starign balance...            
     def createAccount(self):
         print("\n--- CREATE NEW ACCOUNT ---")
         name = input("Enter account holder name: ")
@@ -105,6 +108,7 @@ class BankSystem:
         return new_account, balance
 
 
+    # function to remove a accout from the system
     def Delete_Account(self):
         print("\n--- DELETE ACCOUNT ---")
         name = input("Enter the account holder name:")
@@ -128,7 +132,9 @@ class BankSystem:
         time.sleep(3)
         
         return name, acc_num
-
+    
+    
+    # function that disables a customer account, stops them from being able to perform any transactions
     def Disable_Account(self):
         print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
         name = input("Enter the account holder name:")
@@ -159,7 +165,7 @@ class BankSystem:
         time.sleep(2)
         
         
-
+    # function that changes the payment plan type of a account between Student plan (SP) and Non-student (NP)
     def change_plan (self):
         print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
         name = input("Enter the account holder name:")
@@ -182,7 +188,7 @@ class BankSystem:
             print(f'{name} Account plan is changed to {new_plan}.')
             return name, acc_num
     
-       
+    # generates a unique account number    
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""
         
@@ -198,6 +204,8 @@ class BankSystem:
         
         return str(max_num + 1)
     
+    
+    # Save all accounts from global list to JSON file
     def saveAllAccounts(self):
         """Save all accounts from global list to JSON file"""
         with open("accounts/accounts_valid.json", "w") as file:
@@ -241,6 +249,7 @@ class BankSystem:
         
         return False
     
+    # funtion to transfer money from one customers account to another
     def transferMoney(self):
         from BankSystem import all_accounts  # Import the global list
         
@@ -290,7 +299,7 @@ class BankSystem:
             print("Error: Invalid amount entered. Please enter a number.")
             return False
     
-    '''Tracks the current activity for each transaction and function'''
+    # Tracks the current activity for each transaction and function
     def t_activity(self, t_type, name, acc_num, cur_am, m="  "):
 
         m_name = name[:20].ljust(20)
@@ -304,9 +313,8 @@ class BankSystem:
 
         self.s_trans.append(frmt)
 
-        print(f"Format length:{len(frmt)}")
     
-    'Writes the file to t_data.txt'
+    # Writes the file to t_data.txt
     
     def writeFile(self):
 

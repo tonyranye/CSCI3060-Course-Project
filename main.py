@@ -7,6 +7,48 @@ from src.account_modification import *
 from src.transactions import *
 from src.account_modification.deleteAccount import *
 
+
+
+
+"""
+
+PROGRAM INTENTION:
+    Command-line banking application supporting standard user and admin sessions.
+    Provides banking operations through an interactive menu system including
+    login, withdraw, transfer, deposit, paybill, and admin functions (create,
+    delete, disable accounts, change payment plans).
+
+GROUP MEMBERS:
+    Jared Efrem, Sumukh Jagirdar, Tony Akinniranye
+
+INPUT FILES:
+    - accounts/accounts_valid.json: Current user accounts (JSON format)
+
+OUTPUT FILES:
+    - accounts/accounts_valid.json: Updated account balances after transactions
+    - t_data.txt: Daily transaction log (appended at logout)
+
+INPUTS (STDIN):
+    User menu selections, transaction amounts, account credentials
+
+OUTPUTS (STDOUT):
+    Menu displays, transaction confirmations, error messages, account info
+
+HOW TO RUN:
+    1. Ensure Python 3.x and required files are present (BankSystem.py, 
+       Account.py, accounts/accounts_valid.json)
+    2. Run: python main.py
+    3. Select operations from menu (must login first)
+    4. Logout to save transaction log before exiting
+
+"""
+
+
+
+
+
+
+
 # LOAD ALL ACCOUNTS AT STARTUP
 
 'Loads the number of acccounts inside the file'

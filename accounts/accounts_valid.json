@@ -2,7 +2,7 @@
     {
         "name": "John Doe",
         "acc_num": "10000",
-        "balance": 385.9499999999998,
+        "balance": 335.9499999999998,
         "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
@@ -10,7 +10,7 @@
     {
         "name": "Jane Smith",
         "acc_num": "10001",
-        "balance": 925.28,
+        "balance": 975.28,
         "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
