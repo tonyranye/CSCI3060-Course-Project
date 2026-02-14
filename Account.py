@@ -75,7 +75,7 @@ class Account:
     
     
     def withdraw(self, w_a):
-        print(f"{self.name}`s current balance: {self.balance}")
+        print(f"\n{self.name}`s current balance: ${self.balance:.2f}")
 
 
         if w_a<0:
@@ -100,7 +100,7 @@ class Account:
             return 
         else:
             self.balance+=d_a
-        print(f"{self.name}`s current balance after deposite: ${self.balance:.2f}")
+        print(f"\n{self.name}`s current balance after deposite: ${self.balance:.2f}")
         return self.balance
     
 

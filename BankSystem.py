@@ -50,7 +50,7 @@ class BankSystem:
                     # print(self.current_user)
                     return True
             
-            print("Error: Account not found.")
+            print("\nError: Account not found.")
             return False
         
         elif choice == "admin":
@@ -87,11 +87,9 @@ class BankSystem:
         # Generate unique account number
         acc_num = self.generateUniqueAccountNumber()
         
-        admin_choice = input("Is this an admin account? (yes/no): ").lower()
-        is_admin = admin_choice == "yes"
         
         # Create new account object
-        new_account = Account(name, balance, is_admin, acc_num)
+        new_account = Account(name, balance, False, "NP", False, acc_num)
         
         # Add to global list
         all_accounts.append(new_account)
@@ -122,6 +120,8 @@ class BankSystem:
             print("\nTransaction code: ")
             print("06 " + name + " " + acc_num)
         time.sleep(3)
+        
+        return name, acc_num
 
     def Disable_Account(self):
         print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
@@ -146,7 +146,11 @@ class BankSystem:
                 print(f'{name} account {acc_num} disabled.')
             else:
                 print(f'{name} account {acc_num} enabled.')
+            
+            return name, acc_num
         time.sleep(2)
+        
+        
 
     def change_plan (self):
         print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
@@ -166,6 +170,7 @@ class BankSystem:
             print("Error: Account not found or name and account number do not match.")
         else:
             print(f'{name} Account plan is changed to {new_plan}.')
+            return name, acc_num
         
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""

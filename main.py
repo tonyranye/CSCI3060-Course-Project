@@ -65,7 +65,7 @@ def handleChoice(choice):
     elif choice == "withdraw":
         print("WITHDRAW SELECTED...")
         if bank.isAuthorized('withdraw'):
-            w_a = float(input("please enter the amount you want to withdraw:"))
+            w_a = float(input("please enter the amount you want to withdraw: $"))
             bank.current_user.withdraw(w_a)
             bank.t_activity("01", bank.current_user.name, bank.current_user.acc_num, w_a)
         
@@ -79,7 +79,7 @@ def handleChoice(choice):
     elif choice == "paybills":
         print("PAY BILLS SELECTED...")
         if bank.isAuthorized('paybills'):
-            p_a= float(input("please enter the amount you want to pay bill to the company:"))
+            p_a= float(input("please enter the amount you want to pay bill to the company: $"))
             bank.current_user.payBills(p_a)
             bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, p_a)
             
@@ -87,7 +87,7 @@ def handleChoice(choice):
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
-            d_a = float(input("please enter the amount you want to Deposit:"))
+            d_a = float(input("Please enter the amount you want to Deposit: $"))
             bank.current_user.deposite(d_a)
             bank.t_activity("04", bank.current_user.name, bank.current_user.acc_num, d_a)
             
@@ -96,27 +96,27 @@ def handleChoice(choice):
         print("CREATE ACCOUNT SELECTED...")
         if bank.isAuthorized('create'):
            _, balance= bank.createAccount()
-           bank.t_activity("05", bank.current_user.name, bank.current_user.acc_num, balance)
+           bank.t_activity("05", _.name, _.acc_num, balance)
     
     elif choice == "delete account":
         print("DELETE ACCOUNT SELECTED...")
         if bank.isAuthorized('delete'):
            
-            bank.Delete_Account()
-            bank.t_activity("06", bank.current_user.name, bank.current_user.acc_num, 0)
+            name, num = bank.Delete_Account()
+            bank.t_activity("06", name, num, 0)
         
     elif choice == "disable account":
         print("DISABLE ACCOUNT SELECTED...")
         if bank.isAuthorized('disable'):
-            bank.Disable_Account()
-            bank.t_activity("07", bank.current_user.name, bank.current_user.acc_num, 0)
+            name, num = bank.Disable_Account()
+            bank.t_activity("07", name, num, 0)
 
         
     elif choice == "change current plan":
         print("CHANGE PLAN SELECTED...")
         if bank.isAuthorized('changeplan'):
-            bank.change_plan()
-            bank.t_activity("08", bank.current_user.name, bank.current_user.acc_num, 0)
+            name,num = bank.change_plan()
+            bank.t_activity("08", name, num, 0)
         
     elif choice == "logout":
         print("LOGOUT SELECTED...")
