@@ -88,7 +88,7 @@ def handleChoice(choice):
         if bank.isAuthorized('paybills'):
             p_a= float(input("please enter the amount you want to pay bill to the company: $"))
             bank.current_user.payBills(p_a)
-            bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, p_a)
+            bank.t_activity("03", bank.current_user.name, bank.current_user.acc_num, p_a)
             
         
     elif choice == "deposit":
