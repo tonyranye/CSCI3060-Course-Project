@@ -120,7 +120,9 @@ def handleChoice(choice):
         
     elif choice == "logout":
         print("LOGOUT SELECTED...")
+        bank.t_activity("00", bank.current_user.name, bank.current_user.acc_num, 0)
         bank.logout()
+       
        
         
     

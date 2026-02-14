@@ -278,7 +278,7 @@ class BankSystem:
         m_name = name[:20].ljust(20)
         m_acc = str(acc_num)[:5].rjust(5)
 
-        m_am = f"{cur_am:08.2f}"[:8]
+        m_am = f"{cur_am:08.2f}"
         m_m = str(m)[:2].rjust(2)
 
         frmt= f"{t_type} {m_name} {m_acc} {m_am} {m_m}"
