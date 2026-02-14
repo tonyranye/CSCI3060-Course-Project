@@ -175,10 +175,10 @@ class BankSystem:
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""
         if not all_accounts:
-            return "1000"
+            return "10000"
         
         # Find highest account number
-        max_num = 999
+        max_num = 9999
         for acc in all_accounts:
             if acc.acc_num:
                 max_num = max(max_num, int(acc.acc_num))
