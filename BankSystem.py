@@ -166,6 +166,8 @@ class BankSystem:
         acc_num = input("Enter the account number:")
         found_match = False
         new_plan = ""
+        
+        # searches though all acounts to find the one the user entered and changes it accordingly
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
                 found_match = True
@@ -287,15 +289,14 @@ class BankSystem:
         except ValueError:
             print("Error: Invalid amount entered. Please enter a number.")
             return False
-        
-        
-        
+    
+    '''Tracks the current activity for each transaction and function'''
     def t_activity(self, t_type, name, acc_num, cur_am, m="  "):
 
         m_name = name[:20].ljust(20)
         m_acc = str(acc_num)[:5].rjust(5)
 
-        m_am = f"{cur_am:08.2f}"[:8]
+        m_am = f"{cur_am:08.2f}"
         m_m = str(m)[:2].rjust(2)
 
         frmt= f"{t_type} {m_name} {m_acc} {m_am} {m_m}"
@@ -304,6 +305,8 @@ class BankSystem:
         self.s_trans.append(frmt)
 
         print(f"Format length:{len(frmt)}")
+    
+    'Writes the file to t_data.txt'
     
     def writeFile(self):
 
