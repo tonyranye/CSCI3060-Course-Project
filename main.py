@@ -8,13 +8,17 @@ from src.transactions import *
 from src.account_modification.deleteAccount import *
 
 # LOAD ALL ACCOUNTS AT STARTUP
+
+'Loads the number of acccounts inside the file'
 loadAllAccountsFromFile()
 
 
 # global bank instance
+
 bank = BankSystem()
 session_transfer_limit = 1000.00
 
+'prints a welcome message'
 def welcome():
     print("\n--------------------------------------------------------------------")
     print("Welcome To JST Banking! ")
@@ -22,6 +26,7 @@ def welcome():
     print("--------------------------------------------------------------------")
     mainMenu()
 
+'Lists the avaliable options in the main menu'
 def mainMenu():
     print("\nWhat would you like to do today? Select from the options below\n")
     print("1. Login") 
@@ -40,6 +45,8 @@ def mainMenu():
     handleChoice(menuSelection)
     return menuSelection
 
+
+'Handle choice functions allows the program to handle when the user selects diffrent choices from the main menu'
 def handleChoice(choice):
     choice = choice.lower()
     print(f'CHOICE: {choice}')

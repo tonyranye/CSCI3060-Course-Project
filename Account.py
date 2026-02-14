@@ -2,6 +2,8 @@ from BankSystem import*
 import json
 from datetime import datetime
 
+
+# initializes an Account classes with parameters 
 class Account:
     def __init__(self, name, balance, is_admin, payment_plan, is_disabled = None, acc_num=None):
         self.name = name
@@ -11,7 +13,10 @@ class Account:
         self.payment_plan = payment_plan
         self.is_disabled = is_disabled
         self.plans = ["SP", "NP"]
-        
+    
+    '''
+    Getters:
+    '''
     def getName(self):
         return self.name    
     
@@ -22,6 +27,10 @@ class Account:
         return self.acc_num
     
     def printAccountInfo(self):
+        '''
+        printAccountInfo, prints the account info for the user to see        
+
+        '''
         print("\n--------------------------------------------------------------------")
         print("ACCOUNT INFORMATION")
         print("--------------------------------------------------------------------")
@@ -35,7 +44,7 @@ class Account:
     
     
     
-
+   
         
     def transferTo(self, to_account, amount):
         """
@@ -75,6 +84,11 @@ class Account:
     
     
     def withdraw(self, w_a):
+        '''
+        A withdraw function which allows the user to withdraw certain amount 
+        Arg:
+        w_a: prompting user to select the amount which they want to withdraw
+        '''
         print(f"\n{self.name}`s current balance: ${self.balance:.2f}")
 
 
@@ -92,6 +106,11 @@ class Account:
         return self.balance
     
     def deposite(self, d_a):
+        '''
+        A deposite function which allows the user to deposite certain amount 
+        Arg:
+        d_a: prompting user to select the amount which they want to deposite
+        '''
         if d_a<0:
             print("Deposite amount can not be negtive")
             return
@@ -105,6 +124,13 @@ class Account:
     
 
     def payBills(self,amount):
+
+        '''
+        A payBills, which allows the user to pay to selected comapnies
+        
+
+         amount: User can slect the amount to pay
+        '''
 
         
         company = input("Enter company (EC / CQ / FI): ").upper()
