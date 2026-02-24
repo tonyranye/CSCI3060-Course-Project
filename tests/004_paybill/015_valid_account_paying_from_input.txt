@@ -1,8 +1,7 @@
 Login
 Standard 
 John Doe
-Paybill
-1234
-Paybill( The Bright Light Electric Company)
-$100
-
+Paybills
+100
+EC
+logout

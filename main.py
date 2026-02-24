@@ -7,10 +7,52 @@ from src.account_modification import *
 from src.transactions import *
 from src.account_modification.deleteAccount import *
 
+
+
+
+"""
+
+PROGRAM INTENTION:
+    Command-line banking application supporting standard user and admin sessions.
+    Provides banking operations through an interactive menu system including
+    login, withdraw, transfer, deposit, paybill, and admin functions (create,
+    delete, disable accounts, change payment plans).
+
+GROUP MEMBERS:
+    Jared Efrem, Sumukh Jagirdar, Tony Akinniranye
+
+INPUT FILES:
+    - accounts/accounts_valid.json: Current user accounts (JSON format)
+
+OUTPUT FILES:
+    - accounts/accounts_valid.json: Updated account balances after transactions
+    - t_data.txt: Daily transaction log (appended at logout)
+
+INPUTS (STDIN):
+    User menu selections, transaction amounts, account credentials
+
+OUTPUTS (STDOUT):
+    Menu displays, transaction confirmations, error messages, account info
+
+HOW TO RUN:
+    1. Ensure Python 3.x and required files are present (BankSystem.py, 
+       Account.py, accounts/accounts_valid.json)
+    2. Run: python main.py
+    3. Select operations from menu (must login first)
+    4. Logout to save transaction log before exiting
+
+"""
+
+
+
+
+
+
+
 # LOAD ALL ACCOUNTS AT STARTUP
 
 'Loads the number of acccounts inside the file'
-loadAllAccountsFromFile()
+
 
 
 # global bank instance
@@ -24,7 +66,16 @@ def welcome():
     print("Welcome To JST Banking! ")
     print("developed by\n \nJared Efrem\nSumukh Jagirdar\nTony Akinniranye")
     print("--------------------------------------------------------------------")
-    mainMenu()
+    while True:
+        try:
+            selection = mainMenu()
+           
+            if selection is None or selection.lower() == "logout":
+                break
+        except EOFError:
+           
+            print("\nEnd of input reached. Exiting...")
+            break
 
 'Lists the avaliable options in the main menu'
 def mainMenu():
@@ -41,9 +92,14 @@ def mainMenu():
     print("10. Logout\n")
     print("11. EXIT")
     
-    menuSelection = (input("\nEnter Choice: "))
-    handleChoice(menuSelection)
-    return menuSelection
+    try:
+        menuSelection = input("\nEnter Choice: ")
+        if menuSelection.strip() == "":
+                return None
+        handleChoice(menuSelection)
+        return menuSelection
+    except EOFError:
+        return None
 
 
 'Handle choice functions allows the program to handle when the user selects diffrent choices from the main menu'
@@ -140,8 +196,20 @@ def handleChoice(choice):
         print("--------------------------------------------------------------------\n")
         time.sleep(1)
     
-    # Return to menu after each transaction
-    mainMenu()
+
 
 if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Use: python main.py <current_accounts_file> <transaction_output_file>")
+        sys.exit(1)
+
+    
+    accounts_file = sys.argv[1]
+    transaction_log_file = sys.argv[2]
+
+    loadAllAccountsFromFile(accounts_file)
+    
+    
+    bank.transaction_file_path = transaction_log_file
+
     welcome()
