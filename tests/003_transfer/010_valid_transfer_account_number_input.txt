@@ -1,5 +1,7 @@
 Login
 Standard
 John Doe
-Withdraw
-00A3
+transfer
+100010
+200
+logout

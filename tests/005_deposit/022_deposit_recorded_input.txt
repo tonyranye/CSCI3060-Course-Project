@@ -1,5 +1,6 @@
 Login
 Standard
-Jhon Doe
-1234
-100
+John Doe
+deposit
+50
+logout

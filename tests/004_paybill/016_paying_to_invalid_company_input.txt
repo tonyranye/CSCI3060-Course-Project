@@ -1,6 +1,5 @@
 Login
 Standard
 John Doe
-Paybill
-1234
-(Invalid Company)
+paybills
+EC
