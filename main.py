@@ -5,7 +5,6 @@ from BankSystem import BankSystem, loadAllAccountsFromFile
 from Account import *
 from src.account_modification import *
 from src.transactions import *
-from src.account_modification.deleteAccount import *
 
 
 
@@ -80,7 +79,7 @@ def welcome():
 'Lists the avaliable options in the main menu'
 def mainMenu():
     print("\nWhat would you like to do today? Select from the options below\n")
-    print("Login")
+    print("Login") 
     print("Withdraw")
     print("Transfer")
     print("Paybills")
@@ -146,7 +145,7 @@ def handleChoice(choice):
             bank.current_user.payBills(p_a)
             bank.t_activity("03", bank.current_user.name, bank.current_user.acc_num, p_a)
             
-        
+    # here  
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):

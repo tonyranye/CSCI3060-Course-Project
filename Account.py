@@ -70,6 +70,11 @@ class Account:
             print("Error: Insufficient funds to complete transfer.")
             return False
         
+        if (to_account.balance + amount) < 99999:
+            print("Error: recepiant account will exceed account limit. $99,999")
+            return False
+            
+        
         # Perform transfer
         self.balance -= amount
         to_account.balance += amount
@@ -111,15 +116,22 @@ class Account:
         Arg:
         d_a: prompting user to select the amount which they want to deposite
         '''
-        if d_a<0:
+        # 1. Check for negative deposit amounts
+        if d_a < 0:
             print("Deposite amount can not be negtive")
-            return
-        if self.balance>5000:
-            print("Your balance is already more than $5000")
-            return 
-        else:
-            self.balance+=d_a
-        print(f"\n{self.name}`s current balance after deposite: ${self.balance:.2f}")
+            return self.balance
+
+        # 2. Calculate what the new balance would be
+        potential_balance = self.balance + d_a
+
+        # 3. Verify that the balance does not exceed $99,999.99
+        if potential_balance > 99999.99:
+            print("Error: Account balance can be no more than $99,999.99")
+            return self.balance
+    
+        # 4. If checks pass, update the balance
+        self.balance = potential_balance
+        print(f"\n{self.name}'s current balance after deposite: ${self.balance:.2f}")
         return self.balance
     
 
