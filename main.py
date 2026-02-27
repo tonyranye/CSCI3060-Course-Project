@@ -146,7 +146,7 @@ def handleChoice(choice):
             bank.current_user.payBills(p_a)
             bank.t_activity("03", bank.current_user.name, bank.current_user.acc_num, p_a)
             
-        
+    # here  
     elif choice == "deposit":
         print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
