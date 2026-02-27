@@ -2,6 +2,19 @@ from BankSystem import*
 import json
 from datetime import datetime
 
+# TEST MODE flag
+TEST_MODE = True
+
+def test_print(*args, **kwargs):
+    """Print only in test mode"""
+    if TEST_MODE:
+        print(*args, **kwargs)
+
+def normal_print(*args, **kwargs):
+    """Print only in normal mode"""
+    if not TEST_MODE:
+        print(*args, **kwargs)
+
 
 # initializes an Account classes with parameters 
 class Account:
@@ -31,16 +44,16 @@ class Account:
         printAccountInfo, prints the account info for the user to see        
 
         '''
-        print("\n--------------------------------------------------------------------")
-        print("ACCOUNT INFORMATION")
-        print("--------------------------------------------------------------------")
-        print(f"Account Holder: {self.name}")
-        print(f"Account Number: {self.acc_num if self.acc_num else 'None'}")
-        print(f'Payment Plan: {self.payment_plan}')
-        print(f"Current Balance: ${self.balance:.2f}")
-        print(f"Admin Privileges: {'Yes' if self.is_admin else 'No'}")  # Changed from self.admin
-        print(f"Account status: {'Active' if not self.is_disabled else 'Disabled' } ")
-        print("--------------------------------------------------------------------")
+        normal_print("\n--------------------------------------------------------------------")
+        normal_print("ACCOUNT INFORMATION")
+        normal_print("--------------------------------------------------------------------")
+        normal_print(f"Account Holder: {self.name}")
+        normal_print(f"Account Number: {self.acc_num if self.acc_num else 'None'}")
+        normal_print(f'Payment Plan: {self.payment_plan}')
+        normal_print(f"Current Balance: ${self.balance:.2f}")
+        normal_print(f"Admin Privileges: {'Yes' if self.is_admin else 'No'}")  # Changed from self.admin
+        normal_print(f"Account status: {'Active' if not self.is_disabled else 'Disabled' } ")
+        normal_print("--------------------------------------------------------------------")
     
     
     
@@ -59,19 +72,23 @@ class Account:
         """
         # Validation checks
         if self == to_account:
-            print("Error: Cannot transfer to the same account.")
+            test_print("Error: Cannot transfer to same account")
+            normal_print("Error: Cannot transfer to the same account.")
             return False
         
         if amount < 0.0:
-            print("Error: Cannot transfer negative amounts.")
+            test_print("Error: Cannot transfer negative amounts")
+            normal_print("Error: Cannot transfer negative amounts.")
             return False
         
         if self.balance < amount:
-            print("Error: Insufficient funds to complete transfer.")
+            test_print("Error: Insufficient funds")
+            normal_print("Error: Insufficient funds to complete transfer.")
             return False
         
-        if (to_account.balance + amount) < 99999:
-            print("Error: recepiant account will exceed account limit. $99,999")
+        if (to_account.balance + amount) > 99999:
+            test_print("Error: Recipient account will exceed limit")
+            normal_print("Error: recepiant account will exceed account limit. $99,999")
             return False
             
         
@@ -79,11 +96,16 @@ class Account:
         self.balance -= amount
         to_account.balance += amount
         
-        print(f"\n✓ Transfer successful!")
-        print(f"  From: {self.name} (Account #{self.acc_num})")
-        print(f"  To: {to_account.name} (Account #{to_account.acc_num})")
-        print(f"  Amount: ${amount:.2f}")
-        print(f"  New balance for {self.name}: ${self.balance:.2f}")
+        test_print(f"Transfer successful: ${amount:.2f}")
+        test_print(f"From: {self.name}")
+        test_print(f"To: {to_account.name}")
+        test_print(f"New balance: ${self.balance:.2f}")
+        
+        normal_print(f"\n✓ Transfer successful!")
+        normal_print(f"  From: {self.name} (Account #{self.acc_num})")
+        normal_print(f"  To: {to_account.name} (Account #{to_account.acc_num})")
+        normal_print(f"  Amount: ${amount:.2f}")
+        normal_print(f"  New balance for {self.name}: ${self.balance:.2f}")
         
         return True
     
@@ -94,20 +116,26 @@ class Account:
         Arg:
         w_a: prompting user to select the amount which they want to withdraw
         '''
-        print(f"\n{self.name}`s current balance: ${self.balance:.2f}")
+        normal_print(f"\n{self.name}`s current balance: ${self.balance:.2f}")
 
 
         if w_a<0:
-            print("Withdraw amount can not be negtive")
+            test_print("Error: Withdraw amount cannot be negative")
+            normal_print("Withdraw amount can not be negtive")
             return
 
 
         if self.balance<w_a and self.balance<0:
-            print("You can not draw amount higher than the balance")
+            test_print("Error: Insufficient funds")
+            normal_print("You can not draw amount higher than the balance")
             return 
         else:
             self.balance-=w_a
-        print(f"{self.name}`s current balance after withdrawing: ${self.balance:.2f}")
+            
+        test_print(f"Withdrawal successful: ${w_a:.2f}")
+        test_print(f"New balance: ${self.balance:.2f}")
+        
+        normal_print(f"{self.name}`s current balance after withdrawing: ${self.balance:.2f}")
         return self.balance
     
     def deposite(self, d_a):
@@ -118,7 +146,8 @@ class Account:
         '''
         # 1. Check for negative deposit amounts
         if d_a < 0:
-            print("Deposite amount can not be negtive")
+            test_print("Error: Deposit amount cannot be negative")
+            normal_print("Deposite amount can not be negtive")
             return self.balance
 
         # 2. Calculate what the new balance would be
@@ -126,12 +155,17 @@ class Account:
 
         # 3. Verify that the balance does not exceed $99,999.99
         if potential_balance > 99999.99:
-            print("Error: Account balance can be no more than $99,999.99")
+            test_print("Error: Balance cannot exceed $99,999.99")
+            normal_print("Error: Account balance can be no more than $99,999.99")
             return self.balance
     
         # 4. If checks pass, update the balance
         self.balance = potential_balance
-        print(f"\n{self.name}'s current balance after deposite: ${self.balance:.2f}")
+        
+        test_print(f"Deposit successful: ${d_a:.2f}")
+        test_print(f"New balance: ${self.balance:.2f}")
+        
+        normal_print(f"\n{self.name}'s current balance after deposite: ${self.balance:.2f}")
         return self.balance
     
 
@@ -145,31 +179,32 @@ class Account:
         '''
 
         
-        company = input("Enter company (EC / CQ / FI): ").upper()
+        company = input().upper()
 
         valid_companies = ["EC", "CQ", "FI"]
 
         if company not in valid_companies:
-            print("Please enter a valid company")
+            test_print("Error: Invalid company")
+            normal_print("Please enter a valid company")
             return 
         
         
         if amount>self.balance:
-            print(f"You can not pay more than your current balance to {company} ")
+            test_print("Error: Insufficient funds")
+            normal_print(f"You can not pay more than your current balance to {company} ")
         
 
         if  amount<0 or amount>2000:
-            print("Please enter a valid amount between $0 and $2000")
+            test_print("Error: Invalid amount (must be $0-$2000)")
+            normal_print("Please enter a valid amount between $0 and $2000")
             return 
     
         else:
             self.balance-=amount
-            print(f"You have paid ${amount} to the company {company}")
+            test_print(f"Payment successful: ${amount:.2f} to {company}")
+            test_print(f"New balance: ${self.balance:.2f}")
+            
+            normal_print(f"You have paid ${amount} to the company {company}")
         
-        print(f"{self.name}`s current balance {self.balance:.2f} after payment")
+        normal_print(f"{self.name}`s current balance {self.balance:.2f} after payment")
         return self.balance
-
-
-        
-
-      
