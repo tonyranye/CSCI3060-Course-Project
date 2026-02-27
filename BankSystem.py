@@ -88,8 +88,22 @@ class BankSystem:
     # function to create a new account, make name, account, num, starign balance...            
     def createAccount(self):
         print("\n--- CREATE NEW ACCOUNT ---")
-        name = input("Enter account holder name: ")
-        balance = float(input("Enter initial deposit: $"))
+        
+        while True:
+            name = input("Enter account holder name: ")
+            if len(name) <= 20:
+                break
+            
+            else:
+                print("Error: The length of the name is too long (max 20 chars)")
+                
+            
+        try:
+            balance = float(input("Enter initial deposit: $"))
+            
+        except ValueError:
+            print("Invalid amount. Setting balance to $0.00")
+            balance = 0.0
         
         # Generate unique account number
         acc_num = self.generateUniqueAccountNumber()

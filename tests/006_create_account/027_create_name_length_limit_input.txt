@@ -1,3 +1,5 @@
 Login
-Privileged
-Create(Name length limit)
+admin
+Create account
+Adam Ericson the thirteenth
+Exit

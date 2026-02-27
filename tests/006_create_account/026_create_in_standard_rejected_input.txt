@@ -1,4 +1,5 @@
 Login
 Standard
 John Doe
-Create()
+Create account
+Exit

@@ -38,5 +38,13 @@
         "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10005",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
     }
 ]

@@ -80,17 +80,17 @@ def welcome():
 'Lists the avaliable options in the main menu'
 def mainMenu():
     print("\nWhat would you like to do today? Select from the options below\n")
-    print("1. Login") 
-    print("2. Withdraw")
-    print("3. Transfer")
-    print("4. Paybills")
-    print("5. Deposit")
-    print("6. Create Account")
-    print("7. Delete Account")
-    print("8. Disable Account")
-    print("9. Change Current Plan")
-    print("10. Logout\n")
-    print("11. EXIT")
+    print("Login") 
+    print("Withdraw")
+    print("Transfer")
+    print("Paybills")
+    print("Deposit")
+    print("Create Account")
+    print("Delete Account")
+    print("Disable Account")
+    print("Change Current Plan")
+    print("Logout\n")
+    print("EXIT")
     
     try:
         menuSelection = input("\nEnter Choice: ")

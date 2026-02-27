@@ -1,5 +1,5 @@
 Login
-Privileged
+admin
 Create New Account
 Mary Anne
 $1000
