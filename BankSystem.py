@@ -7,7 +7,24 @@ from datetime import datetime
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
 
+<<<<<<< HEAD
 #
+=======
+# TEST MODE flag
+TEST_MODE = True
+
+def test_print(*args, **kwargs):
+    """Print only in test mode"""
+    if TEST_MODE:
+        print(*args, **kwargs)
+
+def normal_print(*args, **kwargs):
+    """Print only in normal mode"""
+    if not TEST_MODE:
+        print(*args, **kwargs)
+
+
+>>>>>>> ad58608e4158c8a412d5917936de76677911d771
 class BankSystem:
     def __init__(self, transaction_path="t_data.txt"):
         self.current_user = None
@@ -20,21 +37,22 @@ class BankSystem:
     # function call for when user selects  login option   
     def login(self):
         if self.is_logged_in:
-            print("Error: Already logged in. Please Logout first.")
-            
+            test_print("Error: Already logged in")
+            normal_print("Error: Already logged in. Please Logout first.")
             return False
-        print("\n--- LOGIN ---")
-        print("Select session type: ")
-        print("Standard (Account Holder)")
-        print("Admin (Bank Employee)")
+            
+        normal_print("\n--- LOGIN ---")
+        normal_print("Select session type: ")
+        normal_print("Standard (Account Holder)")
+        normal_print("Admin (Bank Employee)")
         
         
         
-        choice = input("Enter session type: ").strip().lower()
+        choice = input().strip().lower()
         
         if choice == "standard":
             self.session_type = "standard"
-            name = input("Enter account holder name: ").strip()
+            name = input().strip()
             
             # Search for account in global list
             for acc in all_accounts:
@@ -42,18 +60,21 @@ class BankSystem:
                     
                     # if the entered account is disabled, print an error message
                     if acc.is_disabled:
-                        print("\nError: This account has been disabled")
-                        
+                        test_print("Error: Account disabled")
+                        normal_print("\nError: This account has been disabled")
                         return False
                     
                     self.current_user = acc
                     self.is_logged_in = True
-                    print(f'Welcome {name}!')
+                    test_print(f"User Logged")
+                    test_print(f"Standard Mode")
+                    test_print(f"Welcome {name}!")
+                    normal_print(f'Welcome {name}!')
                     self.current_user.printAccountInfo()
-                    # print(self.current_user)
                     return True
             
-            print("\nError: Account not found.")
+            test_print("Error: Account not found")
+            normal_print("\nError: Account not found.")
             return False
         
         # if they entered admin login
@@ -61,48 +82,54 @@ class BankSystem:
             self.session_type = "admin"
             self.current_user = "admin"  # Admin has no specific account
             self.is_logged_in = True
-            print("\nAdmin Mode Enabled!")
-            print(f"Total accounts in system: {len(all_accounts)}")
+            test_print("User Logged")
+            test_print("Admin Mode")
+            normal_print("\nAdmin Mode Enabled!")
+            normal_print(f"Total accounts in system: {len(all_accounts)}")
             return True
         
         else:
-            print('Invalid session type. Please enter "standard" or "admin"')
+            test_print("Error: Invalid session type")
+            normal_print('Invalid session type. Please enter "standard" or "admin"')
             return False
      
     # function to log the current user out of the banking system        
     def logout(self):
         
         if not self.is_logged_in:
-            print("Error: Not currently logged in.")
+            test_print("Error: Not logged in")
+            normal_print("Error: Not currently logged in.")
             return False
         
         self.writeFile()
-        print(f'\nLogging out {self.session_type} session...')
+        test_print("Logout successful")
+        normal_print(f'\nLogging out {self.session_type} session...')
         self.current_user = None
         self.session_type = None
         self.is_logged_in = False
-        print("Logout successful!")
+        normal_print("Logout successful!")
         return True
     
     
     # function to create a new account, make name, account, num, starign balance...            
     def createAccount(self):
-        print("\n--- CREATE NEW ACCOUNT ---")
+        normal_print("\n--- CREATE NEW ACCOUNT ---")
         
         while True:
-            name = input("Enter account holder name: ")
+            name = input()
             if len(name) <= 20:
                 break
-            
             else:
-                print("Error: The length of the name is too long (max 20 chars)")
+                test_print("Error: Name too long (max 20 chars)")
+                normal_print("Error: The length of the name is too long (max 20 chars)")
                 
             
         try:
-            balance = float(input("Enter initial deposit: $"))
+            balance = float(input())
             
         except ValueError:
-            print("Invalid amount. Setting balance to $0.00")
+            test_print("Error: Invalid amount, balance set to $0.00")
+            normal_print("Invalid amount. Setting balance to $0.00")
             balance = 0.0
         
         # Generate unique account number
@@ -118,16 +145,20 @@ class BankSystem:
         # Save to file
         self.saveAllAccounts()
         
-        print("\nAccount created successfully!")
+        test_print(f"Account created: {name}")
+        test_print(f"Account Number: {acc_num}")
+        test_print(f"Balance: ${balance:.2f}")
+        
+        normal_print("\nAccount created successfully!")
         new_account.printAccountInfo()
         return new_account, balance
 
 
     # function to remove an account from the system
     def Delete_Account(self):
-        print("\n--- DELETE ACCOUNT ---")
-        name = input("Enter the account holder name:")
-        acc_num = input("Enter the account number:")
+        normal_print("\n--- DELETE ACCOUNT ---")
+        name = input()
+        acc_num = input()
         Match = False
 
 
@@ -138,12 +169,15 @@ class BankSystem:
                 all_accounts.pop(i)
                 Match = True
         if not Match:
-            print("Error: Account not found or name and account number do not match.")
+            test_print("Error: Account not found")
+            normal_print("Error: Account not found or name and account number do not match.")
         else:
-            print("\nAccount deleted")
-            print("\nAccounts remaining in system: " + str(len(all_accounts)))
-            print("\nTransaction code: ")
-            print("06 " + name + " " + acc_num)
+            test_print(f"Account deleted: {name}")
+            test_print(f"Account Number: {acc_num}")
+            normal_print("\nAccount deleted")
+            normal_print("\nAccounts remaining in system: " + str(len(all_accounts)))
+            normal_print("\nTransaction code: ")
+            normal_print("06 " + name + " " + acc_num)
         time.sleep(3)
 
         return name, acc_num
@@ -151,9 +185,9 @@ class BankSystem:
 
     # function that disables a customer account, stops them from being able to perform any transactions
     def Disable_Account(self):
-        print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
-        name = input("Enter the account holder name:")
-        acc_num = input("Enter the account number:")
+        normal_print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
+        name = input()
+        acc_num = input()
         found_match = False
         is_disabled_check = False
         
@@ -163,18 +197,23 @@ class BankSystem:
                 # if found and belong to the same person, the account is set to disabled
                 if acc.is_disabled:
                     acc.is_disabled = False
+                    test_print(f"Account enabled: {name}")
                 else:
                     acc.is_disabled = True
                     is_disabled_check = True
+                    test_print(f"Account disabled: {name}")
+                    
+                test_print(f"Account Number: {acc_num}")
                 found_match = True
 
         if not found_match:
-            print("Error: Account not found or name and account number do not match.")
+            test_print("Error: Account not found")
+            normal_print("Error: Account not found or name and account number do not match.")
         else:
             if is_disabled_check:
-                print(f'{name} account {acc_num} disabled.')
+                normal_print(f'{name} account {acc_num} disabled.')
             else:
-                print(f'{name} account {acc_num} enabled.')
+                normal_print(f'{name} account {acc_num} enabled.')
             
             return name, acc_num
         time.sleep(2)
@@ -182,9 +221,9 @@ class BankSystem:
         
     # function that changes the payment plan type of account between Student plan (SP) and Non-student (NP)
     def change_plan (self):
-        print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
-        name = input("Enter the account holder name:")
-        acc_num = input("Enter the account number:")
+        normal_print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
+        name = input()
+        acc_num = input()
         found_match = False
         new_plan = ""
 
@@ -198,9 +237,13 @@ class BankSystem:
                     acc.payment_plan = "SP"
                 new_plan = acc.payment_plan
         if not found_match:
-            print("Error: Account not found or name and account number do not match.")
+            test_print("Error: Account not found")
+            normal_print("Error: Account not found or name and account number do not match.")
         else:
-            print(f'{name} Account plan is changed to {new_plan}.')
+            test_print(f"Plan changed: {name}")
+            test_print(f"Account Number: {acc_num}")
+            test_print(f"New Plan: {new_plan}")
+            normal_print(f'{name} Account plan is changed to {new_plan}.')
             return name, acc_num
     # generates a unique account number    
     def generateUniqueAccountNumber(self):
@@ -236,13 +279,14 @@ class BankSystem:
                 })
                 
             json.dump(account_data, file, indent=4)
-            print("Accounts saved successfully")
+            normal_print("Accounts saved successfully")
     
     
     # function that determines if the current active user is allowed to use certain functions
     def isAuthorized(self, transaction_type):
         if not self.is_logged_in:
-            print("Error: Must login first.")
+            test_print("Error: Must login first")
+            normal_print("Error: Must login first.")
             return False
         
         # Unprivileged transactions (standard users can do)
@@ -258,7 +302,8 @@ class BankSystem:
             if self.session_type == 'admin':
                 return True
             else:
-                print("Error: Admin privileges required for this transaction.")
+                test_print("Error: Do not have permissions to " + transaction_type.replace('create', 'create an account'))
+                normal_print("Error: Admin privileges required for this transaction.")
                 return False
         
         return False
@@ -269,7 +314,7 @@ class BankSystem:
         
         # Admin can transfer from any account, standard user only from their own
         if self.session_type == "admin":
-            acc_name_from = input("Enter account holder name to transfer FROM: ")
+            acc_name_from = input()
             
             # Find the account to transfer from
             from_account = None
@@ -279,12 +324,13 @@ class BankSystem:
                     break
             
             if not from_account:
-                print("Error: Source account not found.")
+                test_print("Error: Source account not found")
+                normal_print("Error: Source account not found.")
                 return False
         else:
             from_account = self.current_user
         
-        acc_to = input("Enter account number to send money TO: ")
+        acc_to = input()
         
         # Find destination account
         to_account = None
@@ -294,11 +340,12 @@ class BankSystem:
                 break
         
         if not to_account:
-            print("Error: Destination account could not be found.")
+            test_print("Error: Destination account not found")
+            normal_print("Error: Destination account could not be found.")
             return False
         
         try:
-            amount = float(input("Enter transfer amount: $"))
+            amount = float(input())
             
             # Use the Account's transferTo method
             success = from_account.transferTo(to_account, amount)
@@ -310,7 +357,8 @@ class BankSystem:
             return success, amount
         
         except ValueError:
-            print("Error: Invalid amount entered. Please enter a number.")
+            test_print("Error: Invalid amount")
+            normal_print("Error: Invalid amount entered. Please enter a number.")
             return False
     
     # Tracks the current activity for each transaction and function
@@ -366,9 +414,8 @@ def loadAllAccountsFromFile(accounts_file="accounts/accounts_valid.json"):
                 )
                 all_accounts.append(account)
             
-            print(f" Loaded {len(all_accounts)} account(s) from file")
+            normal_print(f" Loaded {len(all_accounts)} account(s) from file")
             
     except FileNotFoundError:
-        print(" No accounts file found. Starting with empty account list.")
+        normal_print(" No accounts file found. Starting with empty account list.")
         all_accounts = []
-
