@@ -118,17 +118,15 @@ class Account:
         '''
         normal_print(f"\n{self.name}`s current balance: ${self.balance:.2f}")
 
-
         if w_a<0:
             test_print("Error: Withdraw amount cannot be negative")
             normal_print("Withdraw amount can not be negtive")
-            return
+            return None  # Changed from return
 
-
-        if self.balance<w_a and self.balance<0:
+        if self.balance<w_a:  # Fixed logic - removed "and self.balance<0"
             test_print("Error: Insufficient funds")
             normal_print("You can not draw amount higher than the balance")
-            return 
+            return None  # Changed from return
         else:
             self.balance-=w_a
             
@@ -138,7 +136,7 @@ class Account:
         normal_print(f"{self.name}`s current balance after withdrawing: ${self.balance:.2f}")
         return self.balance
     
-    def deposite(self, d_a):
+    def deposit(self, d_a):
         '''
         A deposite function which allows the user to deposite certain amount 
         Arg:

@@ -1,4 +1,7 @@
 Login
-Standard
-John Doe
+Admin
+disable Account
+amy
+10002
 Deposit
+10002

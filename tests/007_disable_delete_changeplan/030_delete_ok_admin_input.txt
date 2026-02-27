@@ -1,5 +1,6 @@
 Login
-Privileged 
-Delete
-John Doe
-1234
+admin 
+Delete account
+Jordan
+10005
+exit

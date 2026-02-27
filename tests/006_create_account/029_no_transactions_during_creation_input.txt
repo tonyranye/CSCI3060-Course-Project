@@ -1,6 +1,6 @@
 Login
 admin
-Create New Account
+Create Account
 Mary Anne
-$1000
+1000
 Deposit

@@ -1,4 +1,4 @@
 Login 
 Standard
 John Doe
-logout(File transaction)
+logout

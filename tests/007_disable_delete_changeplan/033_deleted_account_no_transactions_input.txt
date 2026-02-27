@@ -1,4 +1,8 @@
-Login
-Standard
-John Doe
+login
+admin
+Delete account
+Jordan
+10005
 Withdraw
+Jordan
+10005

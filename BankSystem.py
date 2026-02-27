@@ -323,7 +323,7 @@ class BankSystem:
             if not from_account:
                 test_print("Error: Source account not found")
                 normal_print("Error: Source account not found.")
-                return False
+                return False, 0
         else:
             from_account = self.current_user
         
@@ -339,7 +339,7 @@ class BankSystem:
         if not to_account:
             test_print("Error: Destination account not found")
             normal_print("Error: Destination account could not be found.")
-            return False
+            return False, 0
         
         try:
             amount = float(input())
@@ -356,7 +356,107 @@ class BankSystem:
         except ValueError:
             test_print("Error: Invalid amount")
             normal_print("Error: Invalid amount entered. Please enter a number.")
-            return False
+            return False, 0
+        
+    def withdraw(self):
+        """
+        Withdraw money from an account.
+        Admin can withdraw from any account, standard user only from their own.
+        
+        Returns:
+            tuple: (success, account_object, amount)
+        """
+        # Admin can withdraw from any account, standard user only from their own
+        if self.session_type == "admin":
+            acc_num = input().strip()
+            
+            # Find the account to withdraw from
+            target_account = None
+            for acc in all_accounts:
+                if acc.acc_num == acc_num:
+                    target_account = acc
+                    break
+            
+            if not target_account:
+                test_print("Error: Account not found")
+                normal_print("Error: Account not found.")
+                return False, None, 0
+                
+            # Check if account is disabled
+            if target_account.is_disabled:
+                test_print("Error: Account is disabled")
+                normal_print("Error: This account is disabled and cannot perform transactions.")
+                return False, None, 0
+        else:
+            target_account = self.current_user
+        
+        try:
+            amount = float(input())
+            
+            # Use the Account's withdraw method
+            result = target_account.withdraw(amount)
+            
+            if result is not None:  # Successful withdrawal
+                # Save changes to file
+                self.saveAllAccounts()
+                return True, target_account, amount
+            else:
+                return False, target_account, 0
+        
+        except ValueError:
+            test_print("Error: Invalid amount")
+            normal_print("Error: Invalid amount entered. Please enter a number.")
+            return False, None, 0
+    
+    def depositMoney(self):
+        """
+        Deposit money to an account.
+        Admin can deposit to any account by account number, standard user only to their own.
+        
+        Returns:
+            tuple: (success, account_object, amount)
+        """
+        # Admin can deposit to any account, standard user only to their own
+        if self.session_type == "admin":
+            acc_num = input().strip()
+            
+            # Find the account to deposit to
+            target_account = None
+            for acc in all_accounts:
+                if acc.acc_num == acc_num:
+                    target_account = acc
+                    break
+            
+            if not target_account:
+                test_print("Error: Account not found")
+                normal_print("Error: Account not found.")
+                return False, None, 0
+                
+            # Check if account is disabled
+            if target_account.is_disabled:
+                test_print("Error: Account is disabled")
+                normal_print("Error: This account is disabled and cannot perform transactions.")
+                return False, None, 0
+        else:
+            target_account = self.current_user
+        
+        try:
+            amount = float(input())
+            
+            # Use the Account's deposit method
+            result = target_account.deposit(amount)
+            
+            if result is not None:  # Successful deposit
+                # Save changes to file
+                self.saveAllAccounts()
+                return True, target_account, amount
+            else:
+                return False, target_account, 0
+        
+        except ValueError:
+            test_print("Error: Invalid amount")
+            normal_print("Error: Invalid amount entered. Please enter a number.")
+            return False, None, 0
     
     # Tracks the current activity for each transaction and function
     def t_activity(self, t_type, name, acc_num, cur_am, m="  "):

@@ -44,6 +44,7 @@ HOW TO RUN:
 
 # TEST MODE - set to True for concise test output, False for full dialogue
 TEST_MODE = True
+MADE_DURING_SESSION = False
 
 def test_print(*args, **kwargs):
     """Print only in test mode"""
@@ -93,7 +94,7 @@ def mainMenu():
     normal_print("Create Account")
     normal_print("Delete Account")
     normal_print("Disable Account")
-    normal_print("Change Current Plan")
+    normal_print("Change Plan")
     normal_print("Logout\n")
     normal_print("EXIT")
     
@@ -109,6 +110,7 @@ def mainMenu():
 
 'Handle choice functions allows the program to handle when the user selects diffrent choices from the main menu'
 def handleChoice(choice):
+    global MADE_DURING_SESSION
     choice = choice.lower()
     normal_print(f'CHOICE: {choice}')
     
@@ -116,33 +118,37 @@ def handleChoice(choice):
         normal_print("LOGIN SELECTED...")
         bank.login()
         
-
-        
-        
     elif choice == "exit": 
         normal_print("LOGOUT SELECTED..." if bank.is_logged_in else "")
         if bank.is_logged_in:
             bank.logout()
+        MADE_DURING_SESSION = False
         normal_print("Thank You for choosing JST Banking!")
         sys.exit()
-
         
     elif bank.current_user == None and (choice != "login" or choice != "exit"):
         test_print("Error: Login Required")
         normal_print("\n------------ Login Required, please login first ------------")
         
+    elif MADE_DURING_SESSION == True:
+        print("NOTE: No transactions available in the same session as account creation, please login again to perform transactions")
+
+    
     elif choice == "withdraw":
         normal_print("WITHDRAW SELECTED...")
         if bank.isAuthorized('withdraw'):
-            w_a = float(input())
-            bank.current_user.withdraw(w_a)
-            bank.t_activity("01", bank.current_user.name, bank.current_user.acc_num, w_a)
+            success, account, amount = bank.withdraw()
+            if success and account:
+                bank.t_activity("01", account.name, account.acc_num, amount)    
+            
+            
         
     elif choice == "transfer":
         normal_print("TRANSFER SELECTED...")
         if bank.isAuthorized('transfer'):
             sucess, amount = bank.transferMoney()
-            bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, amount)
+            if sucess:
+                bank.t_activity("02", bank.current_user.name, bank.current_user.acc_num, amount)
         
             
     elif choice == "paybills":
@@ -156,15 +162,17 @@ def handleChoice(choice):
     elif choice == "deposit":
         normal_print("DEPOSIT SELECTED...")
         if bank.isAuthorized('deposit'):
-            d_a = float(input())
-            bank.current_user.deposite(d_a)
-            bank.t_activity("04", bank.current_user.name, bank.current_user.acc_num, d_a)
+            success, account, amount = bank.depositMoney()
+            if success and account:
+                bank.t_activity("04", account.name, account.acc_num, amount)
             
         
     elif choice == "create account":
         normal_print("CREATE ACCOUNT SELECTED...")
+        
         if bank.isAuthorized('create'):
            _, balance= bank.createAccount()
+           MADE_DURING_SESSION = True
            bank.t_activity("05", _.name, _.acc_num, balance)
     
     elif choice == "delete account":
@@ -181,7 +189,7 @@ def handleChoice(choice):
             bank.t_activity("07", name, num, 0)
 
         
-    elif choice == "change current plan":
+    elif choice == "change plan":
         normal_print("CHANGE PLAN SELECTED...")
         if bank.isAuthorized('changeplan'):
             name,num = bank.change_plan()
@@ -190,19 +198,13 @@ def handleChoice(choice):
     elif choice == "logout":
         normal_print("LOGOUT SELECTED...")
         bank.t_activity("00", bank.current_user.name, bank.current_user.acc_num, 0)
-        bank.logout()
-       
-       
-        
-    
-        
+        bank.logout()  
             
     else:
         test_print("Error: Invalid choice")
         normal_print("\nInvalid choice! Please try again.\n")
         normal_print("--------------------------------------------------------------------\n")
         time.sleep(1)
-    
 
 
 if __name__ == "__main__":
@@ -213,10 +215,7 @@ if __name__ == "__main__":
     
     accounts_file = sys.argv[1]
     transaction_log_file = sys.argv[2]
-
     loadAllAccountsFromFile(accounts_file)
-    
-    
     bank.transaction_file_path = transaction_log_file
 
     welcome()

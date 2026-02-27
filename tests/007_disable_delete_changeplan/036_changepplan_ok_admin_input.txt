@@ -1,6 +1,5 @@
 Login
-Privileged 
+admin 
 Change Plan
-John Doe
-1234
-Np
+Bob
+10004

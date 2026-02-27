@@ -1,6 +1,5 @@
 Login
-Privileged
-Disable
-John Doe
-1234
-Disabled (D)
+admin
+Disable Account
+amy
+10002
