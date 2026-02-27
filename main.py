@@ -5,7 +5,6 @@ from BankSystem import BankSystem, loadAllAccountsFromFile
 from Account import *
 from src.account_modification import *
 from src.transactions import *
-from src.account_modification.deleteAccount import *
 
 
 
