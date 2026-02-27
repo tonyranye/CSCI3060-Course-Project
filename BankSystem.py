@@ -7,7 +7,7 @@ from datetime import datetime
 # GLOBAL variable - holds all accounts loaded from JSON
 all_accounts = []
 
-
+#
 class BankSystem:
     def __init__(self, transaction_path="t_data.txt"):
         self.current_user = None
@@ -40,7 +40,7 @@ class BankSystem:
             for acc in all_accounts:
                 if acc.name.lower() == name.lower():
                     
-                    # if the entered account is disabled, print a error message
+                    # if the entered account is disabled, print an error message
                     if acc.is_disabled:
                         print("\nError: This account has been disabled")
                         
@@ -109,15 +109,15 @@ class BankSystem:
         return new_account, balance
 
 
-    # function to remove a accout from the system
+    # function to remove an account from the system
     def Delete_Account(self):
         print("\n--- DELETE ACCOUNT ---")
         name = input("Enter the account holder name:")
         acc_num = input("Enter the account number:")
         Match = False
-        
-        
-        # searches through all acounts to look for the name the user entered in the json file
+
+
+        # searches through all accounts to look for the name the user entered the json file
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
                 # if found, its removed form the all_accounts global variable
@@ -131,10 +131,10 @@ class BankSystem:
             print("\nTransaction code: ")
             print("06 " + name + " " + acc_num)
         time.sleep(3)
-        
+
         return name, acc_num
-    
-    
+
+
     # function that disables a customer account, stops them from being able to perform any transactions
     def Disable_Account(self):
         print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
@@ -143,7 +143,7 @@ class BankSystem:
         found_match = False
         is_disabled_check = False
         
-        # searches throuhg list for the name and account number the user entered
+        # searches through list for the name and account number the user entered
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
                 # if found and belong to the same person, the account is set to disabled
@@ -166,15 +166,15 @@ class BankSystem:
         time.sleep(2)
         
         
-    # function that changes the payment plan type of a account between Student plan (SP) and Non-student (NP)
+    # function that changes the payment plan type of account between Student plan (SP) and Non-student (NP)
     def change_plan (self):
         print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
         name = input("Enter the account holder name:")
         acc_num = input("Enter the account number:")
         found_match = False
         new_plan = ""
-        
-        # searches though all acounts to find the one the user entered and changes it accordingly
+
+        # searches though all accounts to find the one the user entered and changes it accordingly
         for i, acc in enumerate(all_accounts):
             if acc.name.lower() == name.lower() and acc.acc_num == acc_num:
                 found_match = True
@@ -188,16 +188,15 @@ class BankSystem:
         else:
             print(f'{name} Account plan is changed to {new_plan}.')
             return name, acc_num
-    
     # generates a unique account number    
     def generateUniqueAccountNumber(self):
         """Generate unique account number by finding max existing number"""
         
-        # if the list is empty, assign 10000 as the acconut number 
+        # if the list is empty, assign 10000 as the account number
         if not all_accounts:
             return "10000"
         
-        # Find highest account number
+        # Find the highest account number
         max_num = 9999
         for acc in all_accounts:
             if acc.acc_num:
@@ -211,7 +210,7 @@ class BankSystem:
         """Save all accounts from global list to JSON file"""
         with open("accounts/accounts_valid.json", "w") as file:
             account_data = []
-            # for every account in all_accounts, ovveride the json file with the new data
+            # for every account in all_accounts, override the json file with the new data
             for acc in all_accounts:
                 account_data.append({
                     'name': acc.name,
@@ -226,7 +225,7 @@ class BankSystem:
             print("Accounts saved successfully")
     
     
-    # function that determins if the current active user is allowed to use certain functions
+    # function that determines if the current active user is allowed to use certain functions
     def isAuthorized(self, transaction_type):
         if not self.is_logged_in:
             print("Error: Must login first.")
@@ -250,7 +249,7 @@ class BankSystem:
         
         return False
     
-    # funtion to transfer money from one customers account to another
+    # function to transfer money from one customers account to another
     def transferMoney(self):
         from BankSystem import all_accounts  # Import the global list
         
