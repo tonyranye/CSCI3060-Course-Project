@@ -21,6 +21,20 @@ def normal_print(*args, **kwargs):
         print(*args, **kwargs)
 
 
+    """
+    Class function that determines:
+    - system states, 
+    - current user logged_in, 
+    - loads all accounts from accounts_valid.json, 
+    - session type
+    
+    Also handles helper functions using object properteis as inputs for function calls
+    
+    Ex. transferTo(), withdraw(), is_authorized()... 
+
+    """
+
+
 class BankSystem:
     def __init__(self, transaction_path="t_data.txt"):
         self.current_user = None
