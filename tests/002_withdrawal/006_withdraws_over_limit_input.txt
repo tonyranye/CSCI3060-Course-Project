@@ -2,5 +2,5 @@ Login
 Standard
 John Doe
 Withdraw
-50
+501
 logout

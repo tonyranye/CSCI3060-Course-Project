@@ -343,6 +343,9 @@ class BankSystem:
         
         try:
             amount = float(input())
+            if(amount>1000 and self.session_type!="admin"):
+                test_print("Error: The ammount should be less tha  1000")
+                return False, 0
             
             # Use the Account's transferTo method
             success = from_account.transferTo(to_account, amount)

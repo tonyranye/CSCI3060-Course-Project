@@ -2,5 +2,4 @@ Login
 Standard
 John Doe
 Withdraw
-1234
--$100
+-100

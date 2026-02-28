@@ -122,6 +122,11 @@ class Account:
             test_print("Error: Withdraw amount cannot be negative")
             normal_print("Withdraw amount can not be negtive")
             return None  # Changed from return
+        
+        if w_a>500: # withdrawal limit added
+            test_print("Error: Amount exceeds withdrawal limit of $500")
+            normal_print("You can not draw amount higher than the balance")
+            return None
 
         if self.balance<w_a:  # Fixed logic - removed "and self.balance<0"
             test_print("Error: Insufficient funds")

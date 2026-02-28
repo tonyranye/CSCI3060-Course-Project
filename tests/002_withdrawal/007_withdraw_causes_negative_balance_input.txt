@@ -1,6 +1,6 @@
 Login
 Standard 
-John Doe
+sam
 Withdraw
-1234
-$1000
+100
+logout
