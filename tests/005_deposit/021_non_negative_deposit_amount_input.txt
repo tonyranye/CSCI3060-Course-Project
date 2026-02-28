@@ -1,4 +1,6 @@
 Login
-Standard
-1234
-Deposit(<$0)
+Standard 
+John Doe
+deposit
+-200
+logout

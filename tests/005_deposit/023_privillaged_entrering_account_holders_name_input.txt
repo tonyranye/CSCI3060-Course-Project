@@ -1,4 +1,5 @@
 Login
-Privileged
-1234
-Deposit(>$x)
+admin
+deposit
+jjj
+20

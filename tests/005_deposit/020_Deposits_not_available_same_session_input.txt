@@ -1,4 +1,8 @@
 Login
-Standard
-Deposit(>$x)
-Withdraw(>$x)
+Standard 
+John Doe
+deposit
+2001
+transfer
+100
+logout

@@ -1,7 +1,7 @@
 Login
-admin
-Transfer
+Standard
 John Doe
-10003
+Transfer
+10001
 1001
 logout

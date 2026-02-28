@@ -1,5 +1,7 @@
 Login
 Standard 
 John Doe
-1234
-Paybill(balance<paybill)
+paybills
+-200
+EC
+logout

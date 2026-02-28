@@ -2,7 +2,7 @@
     {
         "name": "John Doe",
         "acc_num": "10000",
-        "balance": 35.94999999999982,
+        "balance": 27244.95,
         "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
@@ -26,7 +26,7 @@
     {
         "name": "sam",
         "acc_num": "10003",
-        "balance": 200.0,
+        "balance": 100.0,
         "payment plan": "SP",
         "is_disabled": false,
         "is_admin": false
@@ -114,6 +114,358 @@
     {
         "name": "Mary Anne",
         "acc_num": "10014",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10015",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10016",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10017",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10018",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10019",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10020",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10021",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10022",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10023",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10024",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10025",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10026",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10027",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10028",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10029",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10030",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10031",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10032",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10033",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10034",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10035",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10036",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10037",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10038",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10039",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10040",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10041",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10042",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10043",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10044",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10045",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10046",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10047",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10048",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10049",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10050",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10051",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10052",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10053",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10054",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10055",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10056",
+        "balance": 1000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Jordan",
+        "acc_num": "10057",
+        "balance": 500.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Mary Anne",
+        "acc_num": "10058",
         "balance": 1000.0,
         "payment plan": "NP",
         "is_disabled": false,

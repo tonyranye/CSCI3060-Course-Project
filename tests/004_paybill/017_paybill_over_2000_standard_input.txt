@@ -1,5 +1,7 @@
 Login
 Standard 
 John Doe
-1234
-PayBill(PayBill>$2000)
+paybills
+2001
+EC
+logout

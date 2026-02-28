@@ -1,7 +1,7 @@
 Login
-Standard 
+Standard
 John Doe
 Transfer
-Transfer
-1234
-0Ax3
+100010
+1001
+logout
