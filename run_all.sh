@@ -1,23 +1,22 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
-INPUT_DIR="inputs"           # folder with test input files
-OUTPUT_DIR="outputs"         # where you want .atf + .out
-ACCOUNTS_FILE="accounts/accounts_valid.json"
+INPUT_DIR="tests" # Getting the inputs  from tests dir
+OUTPUT_DIR="outputs" #Slecting where we want to put our output
+ACCOUNTS_FILE="accounts/accounts_valid.json" #Getting the user data
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$OUTPUT_DIR" #Making the out dir
 
-shopt -s nullglob
-for f in "$INPUT_DIR"/*; do
-    base="$(basename "${f}")"        # e.g. 006_transfer_input.txt
-    name="${base%.*}"                # e.g. 006_transfer_input
-    
-    echo "Running test: $base"
-    
-    # stdin comes from the input file
-    # .atf is passed as the "daily transactions output" argument to your program
-    # stdout+stderr go into the terminal log (.out)
-    python main.py "$ACCOUNTS_FILE" "$OUTPUT_DIR/$name.atf" < "$f" > "$OUTPUT_DIR/$name.out" 2>&1
+for f in "$INPUT_DIR"/*; do #looping through the n number of input dir in tests
+  [ -f "$f" ] || continue
+
+  base=$(basename "$f")
+  name=${base%.*}
+
+  echo "Running $base"
+# Run the program with the accounts and it takes input from the test input file and Save all output into a .out file
+
+  python main.py "$ACCOUNTS_FILE" "$OUTPUT_DIR/$name.atf" < "$f" > "$OUTPUT_DIR/$name.out" 2>&1
 done
 
-echo "Done. Outputs are in: $OUTPUT_DIR/"
+echo "Done"
