@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-set -e
+
 
 INPUT_DIR="tests_indv" # Getting the inputs  from tests dir
 OUTPUT_DIR="results/indv" #Slecting where we want to put our output
