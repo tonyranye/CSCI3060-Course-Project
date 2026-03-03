@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Getting the Path to accounts file
 ACCOUNTS_FILE="accounts/accounts_valid.json"
 # Folder where test results will be saved
