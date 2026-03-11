@@ -1,5 +1,18 @@
 User Logged
 Standard Mode
 Welcome John Doe!
-Error: Amount exceeds withdrawal limit of $500
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: John Doe
+Account Number: 10000
+Payment Plan: SP
+Current Balance: $5000.45
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
+
+John Doe`s current balance: $5000.45
+You can not draw amount higher than the balance
 Logout successful

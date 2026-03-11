@@ -1,5 +1,19 @@
 User Logged
 Standard Mode
 Welcome John Doe!
-Error: Deposit amount cannot be negative
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: John Doe
+Account Number: 10000
+Payment Plan: SP
+Current Balance: $5000.45
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
+Deposite amount can not be negtive
+
+DEPOSIT MADE IN MEMORY
+
 Logout successful

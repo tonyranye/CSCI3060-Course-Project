@@ -1,6 +1,20 @@
 User Logged
 Standard Mode
 Welcome John Doe!
-Deposit successful: $100.00
-New balance: $43052.95
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: John Doe
+Account Number: 10000
+Payment Plan: SP
+Current Balance: $5000.45
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
+
+John Doe's current balance after deposite: $5100.45
+
+DEPOSIT MADE IN MEMORY
+
 Logout successful

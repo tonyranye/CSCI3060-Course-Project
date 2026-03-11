@@ -2,6 +2,7 @@ import json
 from Account import Account
 import time
 from datetime import datetime
+from config import *
 
 
 # GLOBAL variable - holds all accounts loaded from JSON
@@ -153,7 +154,7 @@ class BankSystem:
         all_accounts.append(new_account)
         
         # Save to file
-        #self.saveAllAccounts()
+        # self.saveAllAccounts()
         print("\nACCOUNT MADE IN LOCAL MEMORY\n")
         
         test_print(f"Account created: {name}")

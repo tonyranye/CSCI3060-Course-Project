@@ -1,4 +1,15 @@
 User Logged
 Standard Mode
 Welcome John Doe!
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: John Doe
+Account Number: 10000
+Payment Plan: SP
+Current Balance: $5000.45
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
 Error: The ammount should be less tha  1000

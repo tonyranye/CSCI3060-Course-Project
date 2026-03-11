@@ -1,7 +1,21 @@
 User Logged
 Standard Mode
 Welcome John Doe!
-Deposit successful: $2001.00
-New balance: $42952.95
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: John Doe
+Account Number: 10000
+Payment Plan: SP
+Current Balance: $5000.45
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
+
+John Doe's current balance after deposite: $7001.45
+
+DEPOSIT MADE IN MEMORY
+
 Error: Destination account not found
 Logout successful

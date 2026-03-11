@@ -3,6 +3,7 @@ import os
 import sys
 from BankSystem import BankSystem, loadAllAccountsFromFile
 from Account import *
+from config import *
 # from src.account_modification import *
 # from src.transactions import *
 
@@ -43,7 +44,7 @@ HOW TO RUN:
 """
 
 # TEST MODE - set to True for concise test output, False for full dialogue
-TEST_MODE = False
+TEST_MODE = True
 MADE_DURING_SESSION = False
 
 def test_print(*args, **kwargs):

@@ -1,6 +1,21 @@
 User Logged
 Standard Mode
 Welcome sam!
-Withdrawal successful: $100.00
-New balance: $100.00
+
+--------------------------------------------------------------------
+ACCOUNT INFORMATION
+--------------------------------------------------------------------
+Account Holder: sam
+Account Number: 10003
+Payment Plan: SP
+Current Balance: $200.00
+Admin Privileges: No
+Account status: Active 
+--------------------------------------------------------------------
+
+sam`s current balance: $200.00
+sam`s current balance after withdrawing: $100.00
+
+WITHDRAW MADE IN MEMORY
+
 Logout successful
