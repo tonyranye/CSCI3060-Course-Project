@@ -1,5 +1,3 @@
-
-
 INPUT_DIR="tests_indv" # Getting the inputs  from tests dir
 OUTPUT_DIR="results/indv" #Slecting where we want to put our output
 ACCOUNTS_FILE="accounts/accounts_valid.json" #Getting the user data

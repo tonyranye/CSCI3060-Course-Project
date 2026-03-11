@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e58c786d-9867-44b3-8c44-4e48a777d0c9" name="Changes" comment="change plan parameters added">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_13_2026_7_19_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_13_2026_7_19_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BankSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/BankSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/accounts_valid.json" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/accounts_valid.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/002_withdrawal/007_withdraw_causes_negative_balance.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/002_withdrawal/007_withdraw_causes_negative_balance.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/003_transfer/010_valid_transfer_account_number.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/003_transfer/010_valid_transfer_account_number.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/004_paybill/015_valid_account_paying_from.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/004_paybill/015_valid_account_paying_from.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/004_paybill/016_paying_to_invalid_company.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/004_paybill/016_paying_to_invalid_company.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/005_deposit/019_pay_bill_is_valid_account.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/019_pay_bill_is_valid_account.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/005_deposit/020_Deposits_not_available_same_session.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/020_Deposits_not_available_same_session.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/005_deposit/022_deposit_recorded.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/022_deposit_recorded.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/006_create_account/024_create_ok_admin.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/006_create_account/024_create_ok_admin.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/006_create_account/029_no_transactions_during_creation.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/006_create_account/029_no_transactions_during_creation.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_one.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_one.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t_data.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +52,9 @@
     &quot;accountId&quot;: &quot;c3f93318-fc5e-45dc-8723-4afcc76ccbb0&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -43,24 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tonya/projects/year_3/sqa/CSCI3060-Course-Project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/tonya/projects/year_3/sqa/CSCI3060-Course-Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

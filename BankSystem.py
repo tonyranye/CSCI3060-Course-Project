@@ -153,7 +153,8 @@ class BankSystem:
         all_accounts.append(new_account)
         
         # Save to file
-        self.saveAllAccounts()
+        #self.saveAllAccounts()
+        print("\nACCOUNT MADE IN LOCAL MEMORY\n")
         
         test_print(f"Account created: {name}")
         test_print(f"Account Number: {acc_num}")
@@ -366,7 +367,8 @@ class BankSystem:
             
             if success:
                 # Save changes to file
-                self.saveAllAccounts()
+                # self.saveAllAccounts()
+                print("\nTRANSFER MADE IN MEMORY\n")
             
             return success, amount
         
@@ -415,7 +417,8 @@ class BankSystem:
             
             if result is not None:  # Successful withdrawal
                 # Save changes to file
-                self.saveAllAccounts()
+                # self.saveAllAccounts()
+                print("\nWITHDRAW MADE IN MEMORY\n")
                 return True, target_account, amount
             else:
                 return False, target_account, 0
@@ -465,7 +468,8 @@ class BankSystem:
             
             if result is not None:  # Successful deposit
                 # Save changes to file
-                self.saveAllAccounts()
+                # self.saveAllAccounts()
+                print("\nDEPOSIT MADE IN MEMORY\n")
                 return True, target_account, amount
             else:
                 return False, target_account, 0

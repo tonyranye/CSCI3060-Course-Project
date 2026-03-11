@@ -43,7 +43,7 @@ HOW TO RUN:
 """
 
 # TEST MODE - set to True for concise test output, False for full dialogue
-TEST_MODE = True
+TEST_MODE = False
 MADE_DURING_SESSION = False
 
 def test_print(*args, **kwargs):
@@ -85,7 +85,7 @@ def welcome():
 
 'Lists the avaliable options in the main menu'
 def mainMenu():
-    normal_print("\nWhat would you like to do today? Select from the options below\n")
+    normal_print("\nWhat would you like to do today? Enter a option from the choices below\n")
     normal_print("Login") 
     normal_print("Withdraw")
     normal_print("Transfer")
@@ -96,7 +96,7 @@ def mainMenu():
     normal_print("Disable Account")
     normal_print("Change Plan")
     normal_print("Logout\n")
-    normal_print("EXIT")
+    normal_print("EXIT\n")
     
     try:
         menuSelection = input()
