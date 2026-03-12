@@ -44,18 +44,9 @@ HOW TO RUN:
 """
 
 # TEST MODE - set to True for concise test output, False for full dialogue
-TEST_MODE = True
 MADE_DURING_SESSION = False
 
-def test_print(*args, **kwargs):
-    """Print only in test mode"""
-    if TEST_MODE:
-        print(*args, **kwargs)
 
-def normal_print(*args, **kwargs):
-    """Print only in normal mode"""
-    if not TEST_MODE:
-        print(*args, **kwargs)
 
 # LOAD ALL ACCOUNTS AT STARTUP
 
