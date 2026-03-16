@@ -1,5 +1,4 @@
-TEST_MODE = True
-
+TEST_MODE = False
 
 def test_print(*args, **kwargs):
     """Print only in test mode"""

@@ -1,0 +1,43 @@
+[
+    {
+        "name": "John Doe",
+        "acc_num": "10000",
+        "balance": 5000.45,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false,
+        "total_t":0
+    },
+    {
+        "name": "Jane Smith",
+        "acc_num": "10001",
+        "balance": 975.28,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "amy",
+        "acc_num": "10002",
+        "balance": 100000.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "sam",
+        "acc_num": "10003",
+        "balance": 200.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    },
+    {
+        "name": "Bob",
+        "acc_num": "10004",
+        "balance": 50.0,
+        "payment plan": "SP",
+        "is_disabled": false,
+        "is_admin": false
+    }
+]
