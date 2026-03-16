@@ -2,42 +2,46 @@
     {
         "name": "John Doe",
         "acc_num": "10000",
-        "balance": 5000.45,
-        "payment plan": "SP",
+        "balance": 9789.45,
+        "payment_plan": "NP",
         "is_disabled": false,
         "is_admin": false,
-        "total_t":0
+        "total_t": 10
     },
     {
         "name": "Jane Smith",
         "acc_num": "10001",
         "balance": 975.28,
-        "payment plan": "SP",
+        "payment_plan": "NP",
         "is_disabled": false,
-        "is_admin": false
+        "is_admin": false,
+        "total_t": 0
     },
     {
         "name": "amy",
         "acc_num": "10002",
-        "balance": 100000.0,
-        "payment plan": "SP",
+        "balance": 99999.99,
+        "payment_plan": "NP",
         "is_disabled": false,
-        "is_admin": false
+        "is_admin": false,
+        "total_t": 0
     },
     {
         "name": "sam",
         "acc_num": "10003",
-        "balance": 200.0,
-        "payment plan": "SP",
+        "balance": 399.8,
+        "payment_plan": "NP",
         "is_disabled": false,
-        "is_admin": false
+        "is_admin": false,
+        "total_t": 2
     },
     {
         "name": "Bob",
         "acc_num": "10004",
         "balance": 50.0,
-        "payment plan": "SP",
+        "payment_plan": "NP",
         "is_disabled": false,
-        "is_admin": false
+        "is_admin": false,
+        "total_t": 0
     }
 ]

@@ -28,7 +28,7 @@ Ex. transferTo(), withdraw(), is_authorized()...
 
 
 class BankSystem:
-    def __init__(self, transaction_path="t_data.txt"):
+    def __init__(self, transaction_path="transaction_data.txt"):
         self.current_user = None
         self.session_type = None
         self.is_logged_in = False
@@ -281,10 +281,10 @@ class BankSystem:
     def saveAllAccounts(self):
         """Save all accounts from global list to JSON file"""
         with open("accounts/accounts_current.json", "w") as file:
-            account_data = []
+            accountransaction_data = []
             # for every account in all_accounts, ovveride the json file with the new data
             for acc in all_accounts:
-                account_data.append({
+                accountransaction_data.append({
                     'name': acc.name,
                     'acc_num': acc.acc_num,
                     'balance': acc.balance,
@@ -293,7 +293,7 @@ class BankSystem:
                     'is_admin': acc.is_admin
                 })
                 
-            json.dump(account_data, file, indent=4)
+            json.dump(accountransaction_data, file, indent=4)
             normal_print("Accounts saved successfully")
     
     
@@ -504,7 +504,7 @@ class BankSystem:
         self.s_trans.append(frmt)
 
     
-    # Writes the file to t_data.txt
+    # Writes the file to transaction_data.txt
     
     def writeFile(self):
 

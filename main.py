@@ -26,7 +26,7 @@ INPUT FILES:
 
 OUTPUT FILES:
     - accounts/accounts_current.json: Updated account balances after transactions
-    - t_data.txt: Daily transaction log (appended at logout)
+    - transaction_data.txt: Daily transaction log (appended at logout)
 
 INPUTS (STDIN):
     User menu selections, transaction amounts, account credentials
@@ -213,6 +213,12 @@ if __name__ == "__main__":
     accounts_file = sys.argv[1]
     transaction_log_file = sys.argv[2]
     loadAllAccountsFromFile(accounts_file)
-    bank.transaction_file_path = transaction_log_file
+    bank.transaction_path = transaction_log_file
+    
+    
+    
+    # clear transaction log at start of session
+    with open(transaction_log_file, 'w') as f:
+        f.write('')
 
     welcome()

@@ -1,5 +1,5 @@
 # Getting the Path to accounts file
-ACCOUNTS_FILE="accounts/accounts_valid.json"
+ACCOUNTS_FILE="accounts/accounts_current.json"
 # Folder where test results will be saved
 OUTPUT_DIR="results"
 # Create results folder if it does not exist already
