@@ -17,7 +17,7 @@ TEST_MODE=True
 Class function that determines:
 - system states, 
 - current user logged_in, 
-- loads all accounts from accounts_valid.json, 
+- loads all accounts from accounts_current.json, 
 - session type
 
 Also handles helper functions using object properteis as inputs for function calls
@@ -55,6 +55,7 @@ class BankSystem:
         if choice == "standard":
             print("Standard Slected:")
             self.session_type = "standard"
+            normal_print("\nEnter account name: ")
             name = input().strip()
        
             
@@ -120,6 +121,7 @@ class BankSystem:
         normal_print("\n--- CREATE NEW ACCOUNT ---")
         
         while True:
+            normal_print("Enter account holder name: ")
             name = input()
             if len(name) <= 20:
                 break
@@ -129,6 +131,7 @@ class BankSystem:
                 
             
         try:
+            normal_print("Enter initial balance: ")
             balance = float(input())
             
         except ValueError:
@@ -146,9 +149,9 @@ class BankSystem:
         # Add to global list
         all_accounts.append(new_account)
         
-        # Save to file
+        # Save to file  
         # self.saveAllAccounts()
-        print("\nACCOUNT MADE IN LOCAL MEMORY\n")
+        normal_print("\nACCOUNT CREATED IN MEMORY\n")
         
         test_print(f"Account created: {name}")
         test_print(f"Account Number: {acc_num}")
@@ -162,7 +165,9 @@ class BankSystem:
     # function to remove a accout from the system
     def Delete_Account(self):
         normal_print("\n--- DELETE ACCOUNT ---")
+        normal_print("Enter account holder name: ")
         name = input()
+        normal_print("Enter account number: ")
         acc_num = input()
         Match = False
         
@@ -183,7 +188,7 @@ class BankSystem:
             normal_print("\nAccounts remaining in system: " + str(len(all_accounts)))
             normal_print("\nTransaction code: ")
             normal_print("06 " + name + " " + acc_num)
-        time.sleep(3)
+       
         
         return name, acc_num
     
@@ -191,7 +196,9 @@ class BankSystem:
     # function that disables a customer account, stops them from being able to perform any transactions
     def Disable_Account(self):
         normal_print("\n--- DISABLE/RE-ENABLE ACCOUNT ---")
+        normal_print("Enter account holder name: ")
         name = input()
+        normal_print("Enter account number: ")
         acc_num = input()
         found_match = False
         is_disabled_check = False
@@ -227,7 +234,9 @@ class BankSystem:
     # function that changes the payment plan type of a account between Student plan (SP) and Non-student (NP)
     def change_plan (self):
         normal_print("\n--- CHANGE ACCOUNT PAYMENT PLAN ---")
+        normal_print("Enter account holder name: ")
         name = input()
+        normal_print("Enter account number: ")
         acc_num = input()
         found_match = False
         new_plan = ""
@@ -271,7 +280,7 @@ class BankSystem:
     # Save all accounts from global list to JSON file
     def saveAllAccounts(self):
         """Save all accounts from global list to JSON file"""
-        with open("accounts/accounts_valid.json", "w") as file:
+        with open("accounts/accounts_current.json", "w") as file:
             account_data = []
             # for every account in all_accounts, ovveride the json file with the new data
             for acc in all_accounts:
@@ -320,6 +329,7 @@ class BankSystem:
         
         # Admin can transfer from any account, standard user only from their own
         if self.session_type == "admin":
+            normal_print("Enter source account name: ")
             acc_name_from = input()
             
             # Find the account to transfer from
@@ -336,6 +346,7 @@ class BankSystem:
         else:
             from_account = self.current_user
         
+        normal_print("Enter destination account number: ")
         acc_to = input()
         
         # Find destination account
@@ -351,6 +362,7 @@ class BankSystem:
             return False, 0
         
         try:
+            normal_print("Enter amount to transfer: ")    
             amount = float(input())
             if(amount>1000 and self.session_type!="admin"):
                 test_print("Error: The ammount should be less tha  1000")
@@ -362,7 +374,7 @@ class BankSystem:
             if success:
                 # Save changes to file
                 # self.saveAllAccounts()
-                print("\nTRANSFER MADE IN MEMORY\n")
+                normal_print("\nTRANSFER MADE IN MEMORY\n")
             
             return success, amount
         
@@ -381,6 +393,7 @@ class BankSystem:
         """
         # Admin can withdraw from any account, standard user only from their own
         if self.session_type == "admin":
+            normal_print("Enter account number to withdraw from: ")
             acc_num = input().strip()
             
             # Find the account to withdraw from
@@ -404,6 +417,7 @@ class BankSystem:
             target_account = self.current_user
         
         try:
+            normal_print("Enter amount to withdraw: ")
             amount = float(input())
             
             # Use the Account's withdraw method
@@ -412,7 +426,7 @@ class BankSystem:
             if result is not None:  # Successful withdrawal
                 # Save changes to file
                 # self.saveAllAccounts()
-                print("\nWITHDRAW MADE IN MEMORY\n")
+                normal_print("\nWITHDRAW MADE IN MEMORY\n")
                 return True, target_account, amount
             else:
                 return False, target_account, 0
@@ -432,6 +446,7 @@ class BankSystem:
         """
         # Admin can deposit to any account, standard user only to their own
         if self.session_type == "admin":
+            normal_print("Enter account number to deposit to: ")
             acc_num = input().strip()
             
             # Find the account to deposit to
@@ -455,6 +470,7 @@ class BankSystem:
             target_account = self.current_user
         
         try:
+            normal_print("Enter amount to deposit: ")
             amount = float(input())
             
             # Use the Account's deposit method
@@ -463,7 +479,7 @@ class BankSystem:
             if result is not None:  # Successful deposit
                 # Save changes to file
                 # self.saveAllAccounts()
-                print("\nDEPOSIT MADE IN MEMORY\n")
+                normal_print("\nDEPOSIT MADE IN MEMORY\n")
                 return True, target_account, amount
             else:
                 return False, target_account, 0
@@ -499,7 +515,7 @@ class BankSystem:
 
 
 # GLOBAL FUNCTION - Call this once at program startup
-def loadAllAccountsFromFile(accounts_file="accounts/accounts_valid.json"):
+def loadAllAccountsFromFile(accounts_file="accounts/accounts_current.json"):
     """Load all accounts from JSON file into global all_accounts list"""
     global all_accounts
     

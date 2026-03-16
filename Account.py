@@ -171,7 +171,7 @@ class Account:
          amount: User can slect the amount to pay
         '''
 
-        
+        normal_print("Enter company code (EC, CQ, FI): ")
         company = input().upper()
 
         valid_companies = ["EC", "CQ", "FI"]

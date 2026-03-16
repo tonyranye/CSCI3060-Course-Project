@@ -1,5 +1,15 @@
 User Logged
 Admin Mode
-Account disabled: amy
-Account Number: 10002
-Error: Account is disabled
+Error: Account not found
+Traceback (most recent call last):
+  File "C:\Users\tonya\projects\year_3\sqa\CSCI3060-Course-Project\main.py", line 216, in <module>
+    welcome()
+  File "C:\Users\tonya\projects\year_3\sqa\CSCI3060-Course-Project\main.py", line 71, in welcome
+    selection = mainMenu()
+                ^^^^^^^^^^
+  File "C:\Users\tonya\projects\year_3\sqa\CSCI3060-Course-Project\main.py", line 98, in mainMenu
+    handleChoice(menuSelection)
+  File "C:\Users\tonya\projects\year_3\sqa\CSCI3060-Course-Project\main.py", line 183, in handleChoice
+    name, num = bank.Disable_Account()
+    ^^^^^^^^^
+TypeError: cannot unpack non-iterable NoneType object

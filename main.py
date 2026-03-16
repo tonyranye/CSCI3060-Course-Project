@@ -22,10 +22,10 @@ GROUP MEMBERS:
     Jared Efrem, Sumukh Jagirdar, Tony Akinniranye
 
 INPUT FILES:
-    - accounts/accounts_valid.json: Current user accounts (JSON format)
+    - accounts/accounts_current.json: Current user accounts (JSON format)
 
 OUTPUT FILES:
-    - accounts/accounts_valid.json: Updated account balances after transactions
+    - accounts/accounts_current.json: Updated account balances after transactions
     - t_data.txt: Daily transaction log (appended at logout)
 
 INPUTS (STDIN):
@@ -36,7 +36,7 @@ OUTPUTS (STDOUT):
 
 HOW TO RUN:
     1. Ensure Python 3.x and required files are present (BankSystem.py, 
-       Account.py, accounts/accounts_valid.json)
+       Account.py, accounts/accounts_current.json)
     2. Run: python main.py
     3. Select operations from menu (must login first)
     4. Logout to save transaction log before exiting
@@ -92,6 +92,7 @@ def mainMenu():
     normal_print("EXIT\n")
     
     try:
+        normal_print("Enter your choice: ")
         menuSelection = input()
         if menuSelection.strip() == "":
                 return None
@@ -149,6 +150,7 @@ def handleChoice(choice):
     elif choice == "paybills":
         normal_print("PAY BILLS SELECTED...")
         if bank.isAuthorized('paybills'):
+            normal_print("Enter amount to pay: ")
             p_a= float(input())
             bank.current_user.payBills(p_a)
             bank.t_activity("03", bank.current_user.name, bank.current_user.acc_num, p_a)

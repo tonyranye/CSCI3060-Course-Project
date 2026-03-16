@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 *.out
 congig.py
+t_data.txt
 
 # IDE files
 .idea/
