@@ -1,18 +1,8 @@
+Standard Slected:
 User Logged
 Standard Mode
 Welcome John Doe!
-
---------------------------------------------------------------------
-ACCOUNT INFORMATION
---------------------------------------------------------------------
-Account Holder: John Doe
-Account Number: 10000
-Payment Plan: SP
-Current Balance: $5000.45
-Admin Privileges: No
-Account status: Active 
---------------------------------------------------------------------
-Error: Account balance can be no more than $99,999.99
+Error: Balance cannot exceed $99,999.99
 
 DEPOSIT MADE IN MEMORY
 

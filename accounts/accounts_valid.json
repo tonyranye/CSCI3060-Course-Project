@@ -5,7 +5,8 @@
         "balance": 5000.45,
         "payment plan": "SP",
         "is_disabled": false,
-        "is_admin": false
+        "is_admin": false,
+        "total_t":0
     },
     {
         "name": "Jane Smith",

@@ -1,17 +1,5 @@
+Standard Slected:
 User Logged
 Standard Mode
 Welcome John Doe!
-
---------------------------------------------------------------------
-ACCOUNT INFORMATION
---------------------------------------------------------------------
-Account Holder: John Doe
-Account Number: 10000
-Payment Plan: SP
-Current Balance: $5000.45
-Admin Privileges: No
-Account status: Active 
---------------------------------------------------------------------
-
-John Doe`s current balance: $5000.45
-Withdraw amount can not be negtive
+Error: Withdraw amount cannot be negative

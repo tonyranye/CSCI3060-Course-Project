@@ -1,4 +1,4 @@
-TEST_MODE = False
+TEST_MODE = True
 
 
 def test_print(*args, **kwargs):

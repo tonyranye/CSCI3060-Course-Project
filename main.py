@@ -44,6 +44,7 @@ HOW TO RUN:
 """
 
 # TEST MODE - set to True for concise test output, False for full dialogue
+TEST_MODE=True
 MADE_DURING_SESSION = False
 
 
@@ -109,6 +110,8 @@ def handleChoice(choice):
     if choice == "login":
         normal_print("LOGIN SELECTED...")
         bank.login()
+        
+
         
     elif choice == "exit": 
         normal_print("LOGOUT SELECTED..." if bank.is_logged_in else "")

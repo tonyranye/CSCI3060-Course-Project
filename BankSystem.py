@@ -9,31 +9,22 @@ from config import *
 all_accounts = []
 
 # TEST MODE flag
-TEST_MODE = True
-
-def test_print(*args, **kwargs):
-    """Print only in test mode"""
-    if TEST_MODE:
-        print(*args, **kwargs)
-
-def normal_print(*args, **kwargs):
-    """Print only in normal mode"""
-    if not TEST_MODE:
-        print(*args, **kwargs)
+TEST_MODE=True
 
 
-    """
-    Class function that determines:
-    - system states, 
-    - current user logged_in, 
-    - loads all accounts from accounts_valid.json, 
-    - session type
-    
-    Also handles helper functions using object properteis as inputs for function calls
-    
-    Ex. transferTo(), withdraw(), is_authorized()... 
 
-    """
+"""
+Class function that determines:
+- system states, 
+- current user logged_in, 
+- loads all accounts from accounts_valid.json, 
+- session type
+
+Also handles helper functions using object properteis as inputs for function calls
+
+Ex. transferTo(), withdraw(), is_authorized()... 
+
+"""
 
 
 class BankSystem:
@@ -62,8 +53,10 @@ class BankSystem:
         choice = input().strip().lower()
         
         if choice == "standard":
+            print("Standard Slected:")
             self.session_type = "standard"
             name = input().strip()
+       
             
             # Search for account in global list
             for acc in all_accounts:
