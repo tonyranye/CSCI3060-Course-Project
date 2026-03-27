@@ -29,11 +29,11 @@
     {
         "name": "sam",
         "acc_num": "10003",
-        "balance": 399.8,
+        "balance": 699.7,
         "payment_plan": "NP",
         "is_disabled": false,
         "is_admin": false,
-        "total_t": 2
+        "total_t": 3
     },
     {
         "name": "Bob",

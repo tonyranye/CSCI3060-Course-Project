@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e58c786d-9867-44b3-8c44-4e48a777d0c9" name="Changes" comment="change plan parameters added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_13_2026_7_19_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_13_2026_7_19_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BankSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/BankSystem.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/accounts_valid.json" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/accounts_valid.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/002_withdrawal/007_withdraw_causes_negative_balance.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/002_withdrawal/007_withdraw_causes_negative_balance.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/003_transfer/010_valid_transfer_account_number.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/003_transfer/010_valid_transfer_account_number.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/004_paybill/015_valid_account_paying_from.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/004_paybill/015_valid_account_paying_from.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/004_paybill/016_paying_to_invalid_company.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/004_paybill/016_paying_to_invalid_company.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/005_deposit/019_pay_bill_is_valid_account.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/019_pay_bill_is_valid_account.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/005_deposit/020_Deposits_not_available_same_session.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/020_Deposits_not_available_same_session.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/005_deposit/022_deposit_recorded.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/005_deposit/022_deposit_recorded.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/006_create_account/024_create_ok_admin.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/006_create_account/024_create_ok_admin.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/006_create_account/029_no_transactions_during_creation.out" beforeDir="false" afterPath="$PROJECT_DIR$/results/006_create_account/029_no_transactions_during_creation.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_one.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_one.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/t_data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/accounts_current.json" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/accounts_current.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/accounts_master.txt" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/accounts_master.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +30,12 @@
     &quot;assignee&quot;: &quot;tonyranye&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/tonyranye/CSCI3060-Course-Project&quot;,
-    &quot;accountId&quot;: &quot;c3f93318-fc5e-45dc-8723-4afcc76ccbb0&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/tonyranye/CSCI3060-Course-Project.git",
+    "accountId": "0dec873b-26cd-46db-a7b6-b7773bb26943"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -68,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "back-end",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/tonya/projects/year_3/sqa/CSCI3060-Course-Project",
     "node.js.detected.package.eslint": "true",
@@ -85,7 +69,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
