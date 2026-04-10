@@ -191,7 +191,7 @@ class TransactionProcessor:
             accounts -- list of MasterAccount objects
             txn      -- transaction dict with keys: code, name, acc_num, amount
         """
-        from backend.MasterAccount import MasterAccount
+        from MasterAccount import MasterAccount
 
         # Check for duplicate account number
         if self.find_account(accounts, txn['acc_num']):

@@ -3,3 +3,4 @@ admin
 Create account
 Jordan
 500
+logout

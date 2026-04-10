@@ -46,6 +46,7 @@ SEED_MASTER="accounts/accounts_master.txt"
 WEEKLY_DIR="weekly_data"
 
 # Session input files - one per day
+
 DAY1_SESSIONS=(
     "tests/003_transfer/013_no_limit_transfers_privileged_mode_input.txt"
 )

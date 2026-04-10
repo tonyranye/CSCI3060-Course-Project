@@ -3,3 +3,4 @@ admin
 Disable Account
 amy
 10002
+logout

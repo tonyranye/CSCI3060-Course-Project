@@ -126,9 +126,8 @@ def handleChoice(choice):
         test_print("Error: Login Required")
         normal_print("\n------------ Login Required, please login first ------------")
         
-    elif MADE_DURING_SESSION == True:
+    elif MADE_DURING_SESSION == True and choice != "logout":
         print("NOTE: No transactions available in the same session as account creation, please login again to perform transactions")
-
     
     elif choice == "withdraw":
         normal_print("WITHDRAW SELECTED...")
@@ -194,8 +193,11 @@ def handleChoice(choice):
         
     elif choice == "logout":
         normal_print("LOGOUT SELECTED...")
-        bank.t_activity("00", bank.current_user.name, bank.current_user.acc_num, 0)
-        bank.logout()  
+        if bank.current_user == "admin":
+            bank.t_activity("00", "admin", "00000", 0)
+        else:
+            bank.t_activity("00", bank.current_user.name, bank.current_user.acc_num, 0)
+        bank.logout() 
             
     else:
         test_print("Error: Invalid choice")

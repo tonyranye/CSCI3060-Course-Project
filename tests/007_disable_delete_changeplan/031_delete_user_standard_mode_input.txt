@@ -2,3 +2,4 @@ Login
 Standard
 John Doe
 Delete account
+logout
