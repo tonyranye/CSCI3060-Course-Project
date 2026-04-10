@@ -9,3 +9,7 @@ t_data.txt
 # IDE files
 .idea/
 
+# dayily & weekly simulation files
+
+daily_tmp/
+weekly_data/

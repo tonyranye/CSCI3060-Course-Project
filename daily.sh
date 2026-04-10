@@ -47,7 +47,7 @@
 FRONTEND="python main.py"
 BACKEND="python backend/backend_main.py"
 WORK_DIR="daily_tmp"          # temporary folder for per-session ATF files
-KEEP_TEMP=false               # set to true to keep per-session files after run
+KEEP_TEMP=true               # set to true to keep per-session files after run
 # ----------------------------------------
 
 set -e   # exit immediately on error
